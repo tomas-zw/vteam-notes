@@ -1,0 +1,168 @@
+% Created 2022-11-06 Sun 10:27
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{John Doe}
+\date{\today}
+\title{Entity Overview}
+\hypersetup{
+ pdfauthor={John Doe},
+ pdftitle={Entity Overview},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Fysiska entiteter}
+\label{sec:org1adb97b}
+
+\subsection{Kund}
+\label{sec:orge805b47}
+
+\subsubsection{inloggning}
+\label{sec:orge5b5fc2}
+En kund måste vara inloggad för att få tillgång till cyklar.
+\begin{itemize}
+\item OAuth med tex \href{https://docs.github.com/en/developers/apps/building-oauth-apps}{github}
+\end{itemize}
+
+\subsubsection{betalning}
+\label{sec:org82fa810}
+En kund måste kunna betala för att hyra cykel.
+\begin{itemize}
+\item med befintliga pengar på saldo?
+\begin{itemize}
+\item möjlighet att fylla på saldo
+\end{itemize}
+\item betala i efterhand?
+\begin{itemize}
+\item kort? swish? konto?
+\end{itemize}
+\item båda?
+\end{itemize}
+
+\subsubsection{information}
+\label{sec:orgf43e755}
+\begin{itemize}
+\item id
+\item förnamn
+\item efternamn
+\item username ?
+\item email
+\item tele
+\item adress ?
+\item saldo ?
+\item betalnings information ?
+\item nuvarande lånestatus
+\begin{itemize}
+\item cykelid ?
+\item sträcka ?
+\item nuvarande kostnad ?
+\end{itemize}
+\item historik
+\end{itemize}
+
+\subsubsection{övrigt}
+\label{sec:org9c94fa1}
+\begin{itemize}
+\item kan en kund hyra flera cyklar samtidigt?
+\end{itemize}
+
+\subsection{Admin}
+\label{sec:org2c285a1}
+
+\subsubsection{inloggning}
+\label{sec:orgfc4e12b}
+En administratör har (endast?) tillgång till admin gränssnitt.
+\begin{itemize}
+\item OAuth ?
+\item se alla städer
+\item se och hantera kunder
+\item se och hantera cyklar
+\end{itemize}
+
+\subsubsection{information}
+\label{sec:orgc2a462b}
+\begin{itemize}
+\item ?
+\end{itemize}
+
+\subsubsection{övrigt}
+\label{sec:org41d8571}
+\begin{itemize}
+\item En admingrupp eller flera?
+\end{itemize}
+
+\subsection{Cykel}
+\label{sec:org14ab366}
+
+\subsubsection{inloggning}
+\label{sec:org21003fa}
+En cykel måste vara tillagd i systemet för att kunna hyras ut.
+\begin{itemize}
+\item möjlighet att lägga till cykel
+\item möjlighet att ta bort cykel
+\item möjlighet att stoppa cykel
+\end{itemize}
+
+\subsubsection{information}
+\label{sec:orgd0b625e}
+\begin{itemize}
+\item id
+\item status
+\begin{itemize}
+\item laddas
+\item ledig
+\item uthyrd
+\begin{itemize}
+\item kund id ?
+\end{itemize}
+\item service
+\begin{itemize}
+\item status ?
+\end{itemize}
+\end{itemize}
+\item batteristatus
+\item position
+\item hastighet
+\item historik
+\item total sträcka körd ?
+\item sträcka sedan service ?
+\item körtid sedan service ?
+\item sträcka nuvarande uthyrning ?
+\end{itemize}
+
+\subsubsection{övrigt}
+\label{sec:org5033102}
+\begin{itemize}
+\item räcker informationen för att uppfylla samtliga krav?
+\begin{itemize}
+\item \href{https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit\#heading=h.h9x6l2mn1h7}{Administrativt webbgränssnitt}
+\item \href{https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit\#heading=h.yro5c9zb5bii}{Cykelns program}
+\end{itemize}
+\item vad behöver skickas till backend under uthyrning?
+\item om backend flaskhalsar är det ett alternativ att flytta viss logik till cykeln?
+\begin{itemize}
+\item nuvarande kostnad ?
+\item dynamisk tid mellan uppdateringar ?
+\end{itemize}
+\item behöver alla fält sparas i DB?
+\end{itemize}
+
+*
+\end{document}

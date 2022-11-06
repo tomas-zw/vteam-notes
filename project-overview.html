@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-06 Sun 17:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Project Overview</title>
+<meta name="author" content="Tomas Zwolinski" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Project Overview</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org24169de">1. Översikt</a>
+<ul>
+<li><a href="#orgfa33079">1.1. Webbaserad lösning för backend med koppling mot databas för att administrera</a></li>
+<li><a href="#orgff26d71">1.2. REST API med möjlighet att koppla in anpassade applikationer.</a>
+<ul>
+<li><a href="#orgad78d82">1.2.1. Backenden kan utvecklas i godtyckligt relevant programmeringsspråk</a></li>
+</ul>
+</li>
+<li><a href="#org68d2447">1.3. Admin Webbgränssnitt där man kan administrera</a></li>
+<li><a href="#orgc40e071">1.4. Kundens Webbgränssnitt så att den kan logga in och se</a></li>
+<li><a href="#orgd3c6606">1.5. Kundens App så att den kan logga in och se</a></li>
+<li><a href="#orgb536987">1.6. Intelligensen i cykeln, program som styr och övervakar cykeln</a></li>
+</ul>
+</li>
+<li><a href="#org1fecdab">2. Övrigt</a>
+<ul>
+<li><a href="#org518bff5">2.1. Simulera drift i systemet</a></li>
+<li><a href="#orgf7de54d">2.2. kodbas</a></li>
+<li><a href="#orge28a1bd">2.3. Test och Verifikation</a></li>
+<li><a href="#org35cb779">2.4. Driftsättning</a>
+<ul>
+<li><a href="#orga1204c5">2.4.1. optionellt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org24169de" class="outline-2">
+<h2 id="org24169de"><span class="section-number-2">1.</span> Översikt</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgfa33079" class="outline-3">
+<h3 id="orgfa33079"><span class="section-number-3">1.1.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.1d40lxinstsw">Webbaserad</a> lösning för backend med koppling mot databas för att administrera</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>cyklar</li>
+<li>laddstationer</li>
+<li>parkeringszoner</li>
+<li>tillåtna zoner att cykla i</li>
+<li>utlåning/återlämning</li>
+<li>hämtning av cykel</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgff26d71" class="outline-3">
+<h3 id="orgff26d71"><span class="section-number-3">1.2.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.gj0i27b1vsnw">REST API</a> med möjlighet att koppla in anpassade applikationer.</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Väldokumenterat REST API</li>
+<li>Hantera flera olika versioner, tex genom att använda v1/ som en del i URI:n.</li>
+<li>Hantera autentisering</li>
+</ul>
+</div>
+
+<div id="outline-container-orgad78d82" class="outline-4">
+<h4 id="orgad78d82"><span class="section-number-4">1.2.1.</span> Backenden kan utvecklas i godtyckligt relevant programmeringsspråk</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Python, PHP, JS</li>
+<li>Hantera relevant data.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68d2447" class="outline-3">
+<h3 id="org68d2447"><span class="section-number-3">1.3.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.h9x6l2mn1h7">Admin Webbgränssnitt</a> där man kan administrera</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Cyklar</li>
+<li>Stationer</li>
+<li>Kunder</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc40e071" class="outline-3">
+<h3 id="orgc40e071"><span class="section-number-3">1.4.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.l3doj0ee6ekb">Kundens Webbgränssnitt</a> så att den kan logga in och se</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Konto</li>
+<li>Historik</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd3c6606" class="outline-3">
+<h3 id="orgd3c6606"><span class="section-number-3">1.5.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.9lb976xg99gm">Kundens App</a> så att den kan logga in och se</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>låna/lämna tillbaka cykeln</li>
+<li>status på senaste resan</li>
+<li>historik över gjorda resor.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb536987" class="outline-3">
+<h3 id="orgb536987"><span class="section-number-3">1.6.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.yro5c9zb5bii">Intelligensen</a> i cykeln, program som styr och övervakar cykeln</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>på, av</li>
+<li>hastighet, begränsa hastighet</li>
+<li>position</li>
+<li>behöver service/laddning</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1fecdab" class="outline-2">
+<h2 id="org1fecdab"><span class="section-number-2">2.</span> Övrigt</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org518bff5" class="outline-3">
+<h3 id="org518bff5"><span class="section-number-3">2.1.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.fzd271z9cau1">Simulera drift</a> i systemet</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>starta via docker-compose</li>
+<li>simulera n*1000 cyklar och kunder.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf7de54d" class="outline-3">
+<h3 id="orgf7de54d"><span class="section-number-3">2.2.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.tsz0p919gz5x">kodbas</a></h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>ett eller flera git repon</li>
+<li>enkelt att sätta igång systemet</li>
+<li>använda docker-compose</li>
+<li>varje repo dokumenteras i sin egna README.md</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge28a1bd" class="outline-3">
+<h3 id="orge28a1bd"><span class="section-number-3">2.3.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.oxraxdmxs9qc">Test och Verifikation</a></h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>automatiserade tester</li>
+<li>CI/CD flöde (github actions)</li>
+<li>kodkvalitet (scrutinizer)</li>
+<li>verktyg för att validera kodstandard mm skall vara del av tester</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org35cb779" class="outline-3">
+<h3 id="org35cb779"><span class="section-number-3">2.4.</span> <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.1gcjrcfzfp07">Driftsättning</a></h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>docker-compose</li>
+<li>starta hela systemet med ett kommando</li>
+</ul>
+</div>
+
+<div id="outline-container-orga1204c5" class="outline-4">
+<h4 id="orga1204c5"><span class="section-number-4">2.4.1.</span> optionellt</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<ul class="org-ul">
+<li>driftsätt externt</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Tomas Zwolinski</p>
+<p class="date">Created: 2022-11-06 Sun 17:54</p>
+</div>
+</body>
+</html>

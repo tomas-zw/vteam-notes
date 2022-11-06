@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
+<head>
+<!-- 2022-11-06 Sun 18:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>V-team SDS</title>
+<meta name="author" content="Tomas, Patrik, Joel, Richard" />
+<meta name="description" content="SDS utkast" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">V-team SDS</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Inneh&aring;ll</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4cb1cf3">Inledning</a>
+<ul>
+<li><a href="#orgf016183">Bakgrund</a></li>
+</ul>
+</li>
+<li><a href="#org318ae0d">Översikt över systemet</a>
+<ul>
+<li><a href="#org05105e6">Systemets användare</a></li>
+</ul>
+</li>
+<li><a href="#orgb7b80c4">Admin-gränssnitt</a>
+<ul>
+<li><a href="#orga931649">Översikt och daglig drift</a></li>
+<li><a href="#orgf8adc5f">Hantering av kunder</a></li>
+<li><a href="#orgddb069b">Behörighetshantering</a></li>
+<li><a href="#orgcff24e3">Geodatahantering</a></li>
+</ul>
+</li>
+<li><a href="#org68a1a73">Kundens webbgränssnitt</a></li>
+<li><a href="#org301d549">Kundens app</a></li>
+<li><a href="#orgd9d0b4a">Cykelns program</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org4cb1cf3" class="outline-2">
+<h2 id="org4cb1cf3">Inledning</h2>
+<div class="outline-text-2" id="text-org4cb1cf3">
+<p>
+I detta dokument beskrivs ett system som hanterar uthyrning av elsparkcyklar. Systemet ger kunder möjlighet att skapa användarkonton och hyra cyklar, administratörer ges möjlighet att administrera cyklar, laddstationer, parkeringsplatser, städer och information om kunder. Systemet innehåller också ett program för cykeln som styr och övervakar denna.
+</p>
+</div>
+
+<div id="outline-container-orgf016183" class="outline-3">
+<h3 id="orgf016183">Bakgrund</h3>
+<div class="outline-text-3" id="text-orgf016183">
+<p>
+Företaget &rdquo;Svenska Elsparkcyklar AB&rdquo; har utryckt ett behov av ett system som kan hantera uthyrning av elsparkcyklar i svenska städer. För närvarande är företaget etablerat och har verksamhet i &rdquo;TRE STÄDER&rdquo; och planerar att expandera till fler med stöd av ett nytt datasystem.
+</p>
+
+<p>
+Elsparkcyklar är ett, jämfört med andra fortskaffningsmedel, relativt nytt inslag i vår trafikmiljö. De utgör ett nytt sätt att röra sig och kan med rätt förutsättningar utgöra ett miljövänligt sätt att öka transporteffektiviteten i våra städer. Utmaningarna är dock flera, i en utredning från 2021 påpekar Transportstyrelsen att regelverket kan upplevas som otydligt och att många upplever att de som använder cyklarna inte beter sig korrekt. Transportstyrelsen menar i sin utredning att det framförallt rör sig om att användarna parkerar fel och framför fordonen på ett felaktigt sätt. [1] Sedan 1:a september 2022 får elsparkcyklar inte längre framföras på trottoarer och gångbanor och felparkerade cyklar kan beläggas med avgifter. [2]
+</p>
+
+<p>
+Vår förhoppning är att det system som vi presenterar här kommer att kunna lösa en del av dessa utmaningar, inte minst genom att uppmuntra användarna till ett korrekt bruk av cyklarna och genom att automatiskt begränsa var och med vilken hastighet cyklarna kan köras.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org318ae0d" class="outline-2">
+<h2 id="org318ae0d">Översikt över systemet</h2>
+<div class="outline-text-2" id="text-org318ae0d">
+</div>
+<div id="outline-container-org05105e6" class="outline-3">
+<h3 id="org05105e6">Systemets användare</h3>
+<div class="outline-text-3" id="text-org05105e6">
+<p>
+Systemets huvudsakliga användare är kunder och administratörer.
+</p>
+
+<p>
+Kunder har möjlighet att hyra en cykel via en mobilapp som också visar status för senaste resan och en historik över gjorda resor. Kunder har också tillgång till ett webbgränssnitt där de kan se sina kontodetaljer och en historik över sin användning och betalningar.
+</p>
+
+<p>
+Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar och stationer samt få information om kunder. Administratörer kan också lägga till nya cyklar, laddstationer, zoner för parkering och städer.
+</p>
+
+<ul class="org-ul">
+<li>Systemets delar</li>
+<li>Systemet omfattar följande huvudsakliga komponenter:</li>
+
+<li>Databas med information om cyklar, laddstationer, parkeringszoner, tillåtna zoner att cykla i, kunder och administratörer.</li>
+
+<li>Backend - en komponent som sköter kopplingen mellan API och databas.</li>
+
+<li>API med möjlighet att koppla in anpassade applikationer, grundsystemet levereras med följande applikationer:
+
+<ul class="org-ul">
+<li>Administrativt webbgränssnitt där man kan se status för och administrera (ändra, ta bort och lägga till) cyklar, laddstationer, parkeringsplatser, städer och information om kunder.</li>
+
+<li>Webbgränssnitt för kunden så att denne kan logga in och se sitt konto, historik av utlåning och betalningar.</li>
+
+<li>Mobilanpassad webbapp för kunden så denne kan se låna/lämna tillbaka cykeln samt se status på senaste resan och historik över gjorda resor.</li>
+
+<li>Ett cykelprogram som styr och övervakar cykeln (på, av, hastighet, begränsa hastighet, position, behöver service/laddning).</li>
+</ul></li>
+</ul>
+
+<p>
+Nedanstående diagram visar en översikt över systemets huvudkomponenter samt hur de relaterar till- och kommunicerar med varandra i olika lager. [3]
+</p>
+
+
+
+<p>
+<b>Fig 1. Översikt över systemets huvudkomponenter</b>
+</p>
+
+<p>
+I följande avsnitt beskriver vi systemets olika delar i detalj.
+</p>
+
+<p>
+[1] <a href="https://www.transportstyrelsen.se/globalassets/global/publikationer-och-rapporter/vag/slutrapport-utredning-regler-eldrivna-enpersonsfordon.pdf">https://www.transportstyrelsen.se/globalassets/global/publikationer-och-rapporter/vag/slutrapport-utredning-regler-eldrivna-enpersonsfordon.pdf</a>
+</p>
+
+<p>
+[2] Jönköpingsposten 3/9 2022 (byt källa om möjligt) ytterligare källa: <a href="https://rkrattsbaser.gov.se/sfst?bet=1998:1276">https://rkrattsbaser.gov.se/sfst?bet=1998:1276</a> $4
+</p>
+
+<p>
+[3] <a href="https://www.oreilly.com/content/software-architecture-patterns/">https://www.oreilly.com/content/software-architecture-patterns/</a>
+</p>
+
+
+
+<p>
+Bilder på hur systemet kommunicerar med de olika delarna.
+</p>
+
+<p>
+Bilder på olika gränssnitt (mock-ups) ?
+</p>
+
+<p>
+UML-diagram (draw.io t.ex.)
+</p>
+
+<p>
+Komponentdiagram
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7b80c4" class="outline-2">
+<h2 id="orgb7b80c4">Admin-gränssnitt</h2>
+<div class="outline-text-2" id="text-orgb7b80c4">
+<p>
+Systemets admin-gränssnitt används av behöriga användare för att få en översikt över företagets alla resurser:
+</p>
+
+<ul class="org-ul">
+<li>Kunder</li>
+<li>Städer man opererar i</li>
+<li>Cyklar</li>
+<li>Laddstationer</li>
+<li>Parkeringsplatser</li>
+<li>Områden med särskilda bestämmelser</li>
+</ul>
+
+<p>
+Admin-gränssnitt innehåller vyer för att inspektera resurser, skicka kommandon till enskilda cyklar, hantera kundinformation, hantera behörigheter, samt uppdatera systemet med ny data, t ex nya städer man etablerar sig i, nya cyklar, nya parkeringsplatser etc.
+</p>
+</div>
+
+<div id="outline-container-orga931649" class="outline-3">
+<h3 id="orga931649">Översikt och daglig drift</h3>
+<div class="outline-text-3" id="text-orga931649">
+<p>
+I vyn för översikt och daglig drift presenteras all information kring cyklar, laddstationer, parkeringsplatser och områden med särskilda bestämmelser för varje stad man verkar i. Vyn är kartcentrerad. I kartan kan man se information om aktuell status för alla tillgängliga resurser i vald stad, samt även filtrera kartvyn baserat på resurser typ, identitet, eller status. Denna vy används också för att skicka manuella driftkommandon till enskilda cyklar. Det kan t ex vara ett kommando för att stoppa cykeln, om administratören ser behov av det.
+</p>
+
+<p>
+FRÅGA - MAN TÄNKER SIG ATT STOPPKOMMANDO TILL CYKELN BORDE SKE AUTOMATISKT OM EN CYKEL ÅKER FÖR LÅNGT UT TEX.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf8adc5f" class="outline-3">
+<h3 id="orgf8adc5f">Hantering av kunder</h3>
+<div class="outline-text-3" id="text-orgf8adc5f">
+<p>
+Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets kunder, som kan filtreras på stad, användarnamn, antal gjorda resor mm. I denna vyn kan administratören också uppdatera information om enskilda kunder, t ex för att ge en kund en generell rabatt eller rabatt för en enskild resa. Administratören kan också skapa upp nya kunder i denna vy, även om detta i normalfallet hanteras av kunden själv.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgddb069b" class="outline-3">
+<h3 id="orgddb069b">Behörighetshantering</h3>
+<div class="outline-text-3" id="text-orgddb069b">
+<p>
+Vyn för behörighetshantering används för att skapa användare och tilldela dessa behörigheter i admin-systemet. Master-användaren anges vid konfiguration av systemet, men alla övriga roller hanteras i detta gränssnitt.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcff24e3" class="outline-3">
+<h3 id="orgcff24e3">Geodatahantering</h3>
+<div class="outline-text-3" id="text-orgcff24e3">
+<p>
+Systemet har kraftfulla och lättanvända funktioner för att hantera nya marknader och nuya resurser. I vyn för geodatahantering kan administratören lägga upp nya städer för företaget, samt skapa, uppdatera och radera information om enskilda resurser.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68a1a73" class="outline-2">
+<h2 id="org68a1a73">Kundens webbgränssnitt</h2>
+<div class="outline-text-2" id="text-org68a1a73">
+<p>
+När en användare besöker kundens hemsida så behöver användaren registera ett konto för att kunna hyra elsparkcyklar. Det finns flera sätt att skapa ett konto. Antingen görs det på sedvanligt vis genom att uppge:
+</p>
+
+<ul class="org-ul">
+<li>förnamn</li>
+<li>efternamn</li>
+<li>adress</li>
+<li>faktureringsadress</li>
+<li>användarnamn</li>
+<li>lösenord</li>
+</ul>
+
+<p>
+<b>Författarens kommentar: smidigt formulär utan bekräftelse av lösenord och en knapp som kan visa lösenordet medan det skrivs. Om vi ska kunna registrera med github så får vi inte namn, efternamn, adress. Ska vi ha med det?</b>
+</p>
+
+<p>
+Då användaren loggat in på sitt konto så kan användaren se och fylla på sitt saldo. Saldot används för att bekosta resor med elsparkcykel. Användaren behöver inte ha ett positivt saldo utan kan sedan tidigare ha valt att betala i efterhand via diverse betaltjänster.
+</p>
+
+<p>
+Användaren kan också se sin färdhistorik som innefattar:
+</p>
+
+<ul class="org-ul">
+<li>ID på resan</li>
+<li>Startdatum (2000-01-01)</li>
+<li>Starttid (11:11 LT)</li>
+<li>Slutdatum (2000-01-01)</li>
+<li>Sluttid (11:11 LT)</li>
+<li>Startpunkt (lat/long, geografiskt närliggande namn?)</li>
+<li>Slutpunkt (lat/long, geografiskt närliggande namn?)</li>
+<li>Kostnad för resan (kronor, ören)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org301d549" class="outline-2">
+<h2 id="org301d549">Kundens app</h2>
+<div class="outline-text-2" id="text-org301d549">
+<p>
+Elsparkcyklar som är registrerade i systemet för uthyrning och inte upptagna eller under service kan av en användare väljas för uthyrning.
+I verkligheten görs detta genom att scanna en QR-kod som identifierar elsparkcykeln. [referens](<a href="https://turiststockholm.se/sightseeing-guider/hyra-elsparkcykel-i-stockholm-med-voi/">https://turiststockholm.se/sightseeing-guider/hyra-elsparkcykel-i-stockholm-med-voi/</a>).
+I vårt program indentifieras en elsparkcykel genom att från en kartbild välja elsparcykelns ikon vilket ger användaren möjligheten att välja vald elsparkcykel för uthyrning.
+</p>
+
+<p>
+Då en uthyrning påbörjats så kan användaren manövrera elsparkcykeln. De manövreringsmöjligheter som finns är:
+</p>
+
+<ul class="org-ul">
+<li>elsparkcykelns hastighet (gashandtag)</li>
+<li>svänga vänster och höger genom att svänga med styret</li>
+<li>bromsa <b><b><span class="underline">(finns det mer än en broms???)</span></b></b></li>
+</ul>
+
+<p>
+Användaren kan också få information från den hyrda elsparkcykeln i form av:
+</p>
+
+<ul class="org-ul">
+<li>batterinivå</li>
+<li>behov av service (med anledning av t.ex. punktering, trasiga lampor eller dåliga bromsar)</li>
+</ul>
+
+<p>
+Då användaren avslutar sin hyrning av elsparkcykeln så debiteras användarens konto automatiskt för färden. Färdens kostnad kan variera beroende på:
+</p>
+
+<ul class="org-ul">
+<li>tid på dygnet (tillgång och efterfrågan)</li>
+<li>om cykeln flyttats från fri parkering (valfri parkeringsplats utanför rekommenderade parkeringszoner) till en mer önskvärd parkeringsplats</li>
+<li>om cykeln parkeras genom fri parkering</li>
+</ul>
+
+<p>
+Denna kartbild visar var samtliga laddstationer och rekommenderade parkeringsplatser finns.
+</p>
+
+<p>
+Denna kartbild visar var samtliga lediga elsparkcyklar finns att hitta.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9d0b4a" class="outline-2">
+<h2 id="orgd9d0b4a">Cykelns program</h2>
+<div class="outline-text-2" id="text-orgd9d0b4a">
+<p>
+En elsparkcykels huvudsakliga uppgift är att hela tiden meddela sin positon och hälsa via API&rsquo;et.
+</p>
+
+<p>
+Elsparkcykelns program har bara information som rör sin egen position samt hälsa och övrig information
+som rör dess omgivning skickas till den från backend.
+</p>
+
+<ul class="org-ul">
+<li>Uthyrd till en kund</li>
+<li>Kund avslutar lånet</li>
+<li>Begränsa hastighet när den befinner sig i specifika zoner</li>
+<li>Stoppa den ifall den är utanför tillåtet område.</li>
+<li>Intagen på service</li>
+<li>Service utförd</li>
+</ul>
+
+<p>
+I varje elsparkcykel finns sensorer som känner av hälsan och när den ändras
+så skickas den informationen till backend.
+</p>
+
+<ul class="org-ul">
+<li>Batterinivån är låg</li>
+<li>En lampa har gått sönder</li>
+<li>Punktering etc</li>
+</ul>
+
+<p>
+Det är endast när elsparkcykelns status har blivit ändrad till &rsquo;uthyrd&rsquo; eller på &rsquo;service&rsquo; som
+elsparkcykeln är upplåst och går att köra. Så fort dess status återvänder till &rsquo;ledig&rsquo; så
+stängs den av och bromsas, och det enda sättat att flytta den är då att fysiskt lyfta upp och bära bort den.
+Blir det rörelse på en elsparkcykel som ej är uthyrd skickas då en varning omgående till backend,
+och sedan med ett tätt intervall tills den återigen står stilla. Så att personal kan hitta eventuellt stulna
+elsparkcykelar.
+</p>
+
+<p>
+Tusentals elsparkcyklar finns i systemet. Så för att minimera belastningen på API och backend så
+uppdaterar dom sin position med olika intervall beroende på olika faktorer.
+</p>
+
+<ul class="org-ul">
+<li>En uthyrd elsparkcykel i rörelse skickar positionisdata ofta</li>
+<li>En ledig och stillastående elsparkcykel skickar positionsdata sällan</li>
+<li>En elsparkcykel på laddning eller service skickar positionsdata sällan</li>
+</ul>
+
+<p>
+Varje elsparkcykel sparar också en egen historik över alla sina resor.
+</p>
+
+<ul class="org-ul">
+<li>Resans kund</li>
+<li>Resans startposition samt klockslag</li>
+<li>Resans slutposition samt klockslag</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">F&ouml;rfattare: Tomas, Patrik, Joel, Richard</p>
+<p class="date">Created: 2022-11-06 Sun 18:13</p>
+</div>
+</body>
+</html>

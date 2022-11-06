@@ -1,0 +1,90 @@
+#+title: Entity Overview
+#+options: num:nil
+
+* Fysiska entiteter
+
+** Kund
+
+*** inloggning
+En kund måste vara inloggad för att få tillgång till cyklar.
+- OAuth med tex [[https://docs.github.com/en/developers/apps/building-oauth-apps][github]]
+
+*** betalning
+En kund måste kunna betala för att hyra cykel.
+- med befintliga pengar på saldo?
+  - möjlighet att fylla på saldo
+- betala i efterhand?
+  - kort? swish? konto?
+- båda?
+
+*** information
+- id
+- förnamn
+- efternamn
+- username ?
+- email
+- tele
+- adress ?
+- saldo ?
+- betalnings information ?
+- nuvarande lånestatus
+  - cykelid ?
+  - sträcka ?
+  - nuvarande kostnad ?
+- historik
+
+*** övrigt
+- kan en kund hyra flera cyklar samtidigt?
+
+** Admin
+
+*** inloggning
+En administratör har (endast?) tillgång till admin gränssnitt.
+- OAuth ?
+- se alla städer
+- se och hantera kunder
+- se och hantera cyklar
+
+*** information
+- ?
+
+*** övrigt
+- En admingrupp eller flera?
+
+** Cykel
+
+*** inloggning
+En cykel måste vara tillagd i systemet för att kunna hyras ut.
+- möjlighet att lägga till cykel
+- möjlighet att ta bort cykel
+- möjlighet att stoppa cykel
+
+*** information
+- id
+- status
+  - laddas
+  - ledig
+  - uthyrd
+    - kund id ?
+  - service
+    - status ?
+- batteristatus
+- position
+- hastighet
+- historik
+- total sträcka körd ?
+- sträcka sedan service ?
+- körtid sedan service ?
+- sträcka nuvarande uthyrning ?
+
+*** övrigt
+- räcker informationen för att uppfylla samtliga krav?
+  - [[https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.h9x6l2mn1h7][Administrativt webbgränssnitt]]
+  - [[https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit#heading=h.yro5c9zb5bii][Cykelns program]]
+- vad behöver skickas till backend under uthyrning?
+- om backend flaskhalsar är det ett alternativ att flytta viss logik till cykeln?
+  - nuvarande kostnad ?
+  - dynamisk tid mellan uppdateringar ?
+- behöver alla fält sparas i DB?
+
+*
