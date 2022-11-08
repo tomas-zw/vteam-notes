@@ -363,3 +363,6 @@ Denna tabell innehåller information om resor. Varje resa har:
 - en sluttid
 
 Nedanstående bild visar de entiteter som förekommer i databasen, deras attribut och inbördes relationer.
+
+* Exempel bilder
+[[./img/komponenter_oversikt.png]]
