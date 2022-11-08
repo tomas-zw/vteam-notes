@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
 <head>
-<!-- 2022-11-08 Tue 15:13 -->
+<!-- 2022-11-08 Tue 15:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>V-team SDS</title>
@@ -24,70 +24,70 @@
 <h2>Inneh&aring;ll</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd156b31">Inledning</a>
+<li><a href="#org59c4a6e">Inledning</a>
 <ul>
-<li><a href="#org2b78ca3">Bakgrund</a></li>
+<li><a href="#org45c70bd">Bakgrund</a></li>
 </ul>
 </li>
-<li><a href="#orgdc83dc3">Översikt över systemet</a>
+<li><a href="#org9e6d7c4">Översikt över systemet</a>
 <ul>
-<li><a href="#org07bfff6">Systemets användare</a></li>
-<li><a href="#org52c03b7">Systemets delar</a></li>
+<li><a href="#orgc0afa7d">Systemets användare</a></li>
+<li><a href="#org689a126">Systemets delar</a></li>
 </ul>
 </li>
-<li><a href="#orgb5d96bc">Administratörsgränssnitt</a>
+<li><a href="#org8044d39">Administratörsgränssnitt</a>
 <ul>
-<li><a href="#org2b8b664">Översikt och daglig drift</a></li>
-<li><a href="#orgdebda63">Hantering av kunder</a></li>
-<li><a href="#org02db992">Behörighetshantering</a></li>
-<li><a href="#org8dec27b">Geodatahantering</a></li>
+<li><a href="#orgd3ad148">Översikt och daglig drift</a></li>
+<li><a href="#orgb8edfab">Hantering av kunder</a></li>
+<li><a href="#org24a2a9a">Behörighetshantering</a></li>
+<li><a href="#org30d1518">Geodatahantering</a></li>
 </ul>
 </li>
-<li><a href="#orgc25691f">Kundens webbgränssnitt</a></li>
-<li><a href="#org321a654">Kundens app</a></li>
-<li><a href="#org156dca4">Cykelns program</a></li>
-<li><a href="#orga739588">REST-API</a>
+<li><a href="#org05b2729">Kundens webbgränssnitt</a></li>
+<li><a href="#org03ff5df">Kundens app</a></li>
+<li><a href="#org5f86faa">Cykelns program</a></li>
+<li><a href="#org37d0c4a">REST-API</a>
 <ul>
-<li><a href="#orgdcd5b35">Dokumentation</a></li>
-<li><a href="#org74bf89e">Versioner</a></li>
-<li><a href="#org3d80754">Autentisering</a>
+<li><a href="#orga1f916f">Dokumentation</a></li>
+<li><a href="#orgee555d0">Versioner</a></li>
+<li><a href="#org736ff79">Autentisering</a>
 <ul>
-<li><a href="#org9ac43f1">Godkänd autentisering</a></li>
-<li><a href="#org3fa25ab">Misslyckad autentisering</a></li>
+<li><a href="#org912e407">Godkänd autentisering</a></li>
+<li><a href="#orga734815">Misslyckad autentisering</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7e3d50a">Backend</a></li>
-<li><a href="#orgc8093c0">Databas</a>
+<li><a href="#orgaaca413">Backend</a></li>
+<li><a href="#org73d89ec">Databas</a>
 <ul>
-<li><a href="#org5872733">Stad</a></li>
-<li><a href="#org0a1b6fd">Elsparkcykel</a></li>
-<li><a href="#org6507d32">Laddstation</a></li>
-<li><a href="#org0f18bd5">Parkeringsplats</a></li>
-<li><a href="#org78d57c8">Zon</a></li>
-<li><a href="#org19d8f1d">Verkstad (ska verkstäder vara med?)</a></li>
-<li><a href="#org0a9c7a2">Användare</a></li>
-<li><a href="#orgbad2066">Administratör</a></li>
-<li><a href="#orgff5ddaa">Resa</a></li>
+<li><a href="#org697dcbb">Stad</a></li>
+<li><a href="#org1d03097">Elsparkcykel</a></li>
+<li><a href="#org355fee0">Laddstation</a></li>
+<li><a href="#org4891035">Parkeringsplats</a></li>
+<li><a href="#orgd3117ab">Zon</a></li>
+<li><a href="#org26e0542">Verkstad (ska verkstäder vara med?)</a></li>
+<li><a href="#org6ee3d71">Användare</a></li>
+<li><a href="#org32dd8b4">Administratör</a></li>
+<li><a href="#org80cf4e9">Resa</a></li>
 </ul>
 </li>
-<li><a href="#org09876d7">Exempel bilder</a></li>
+<li><a href="#org8390b9b">Exempel bilder</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd156b31" class="outline-2">
-<h2 id="orgd156b31">Inledning</h2>
-<div class="outline-text-2" id="text-orgd156b31">
+<div id="outline-container-org59c4a6e" class="outline-2">
+<h2 id="org59c4a6e">Inledning</h2>
+<div class="outline-text-2" id="text-org59c4a6e">
 <p>
 I detta dokument beskrivs ett system som hanterar uthyrning av elsparkcyklar. Systemet ger kunder möjlighet att skapa användarkonton och hyra cyklar, administratörer ges möjlighet att administrera cyklar, laddstationer, parkeringsplatser, städer och information om kunder. Systemet innehåller också ett program för cykeln som styr och övervakar denna.
 </p>
 </div>
 
-<div id="outline-container-org2b78ca3" class="outline-3">
-<h3 id="org2b78ca3">Bakgrund</h3>
-<div class="outline-text-3" id="text-org2b78ca3">
+<div id="outline-container-org45c70bd" class="outline-3">
+<h3 id="org45c70bd">Bakgrund</h3>
+<div class="outline-text-3" id="text-org45c70bd">
 <p>
 Företaget &rdquo;Svenska Elsparkcyklar AB&rdquo; har utryckt ett behov av ett system som kan hantera uthyrning av elsparkcyklar i svenska städer. För närvarande är företaget etablerat och har verksamhet i &rdquo;TRE STÄDER&rdquo; och planerar att expandera till fler med stöd av ett nytt datasystem.
 </p>
@@ -103,13 +103,13 @@ Vår förhoppning är att det system som vi presenterar här kommer att kunna l�
 </div>
 </div>
 
-<div id="outline-container-orgdc83dc3" class="outline-2">
-<h2 id="orgdc83dc3">Översikt över systemet</h2>
-<div class="outline-text-2" id="text-orgdc83dc3">
+<div id="outline-container-org9e6d7c4" class="outline-2">
+<h2 id="org9e6d7c4">Översikt över systemet</h2>
+<div class="outline-text-2" id="text-org9e6d7c4">
 </div>
-<div id="outline-container-org07bfff6" class="outline-3">
-<h3 id="org07bfff6">Systemets användare</h3>
-<div class="outline-text-3" id="text-org07bfff6">
+<div id="outline-container-orgc0afa7d" class="outline-3">
+<h3 id="orgc0afa7d">Systemets användare</h3>
+<div class="outline-text-3" id="text-orgc0afa7d">
 <p>
 Systemets huvudsakliga användare är kunder (benämns härefter som användare) och administratörer.
 </p>
@@ -124,9 +124,9 @@ Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar
 </div>
 </div>
 
-<div id="outline-container-org52c03b7" class="outline-3">
-<h3 id="org52c03b7">Systemets delar</h3>
-<div class="outline-text-3" id="text-org52c03b7">
+<div id="outline-container-org689a126" class="outline-3">
+<h3 id="org689a126">Systemets delar</h3>
+<div class="outline-text-3" id="text-org689a126">
 <p>
 Systemet omfattar följande huvudsakliga komponenter:
 </p>
@@ -201,9 +201,9 @@ Komponentdiagram
 </div>
 </div>
 
-<div id="outline-container-orgb5d96bc" class="outline-2">
-<h2 id="orgb5d96bc">Administratörsgränssnitt</h2>
-<div class="outline-text-2" id="text-orgb5d96bc">
+<div id="outline-container-org8044d39" class="outline-2">
+<h2 id="org8044d39">Administratörsgränssnitt</h2>
+<div class="outline-text-2" id="text-org8044d39">
 <p>
 Systemets administratörsgränssnitt används av behöriga användare för att få en översikt över företagets alla resurser:
 </p>
@@ -222,9 +222,9 @@ Administratörsgränssnitt innehåller vyer för att inspektera resurser, skicka
 </p>
 </div>
 
-<div id="outline-container-org2b8b664" class="outline-3">
-<h3 id="org2b8b664">Översikt och daglig drift</h3>
-<div class="outline-text-3" id="text-org2b8b664">
+<div id="outline-container-orgd3ad148" class="outline-3">
+<h3 id="orgd3ad148">Översikt och daglig drift</h3>
+<div class="outline-text-3" id="text-orgd3ad148">
 <p>
 I vyn för översikt och daglig drift presenteras all information kring cyklar, laddstationer, parkeringsplatser och områden med särskilda bestämmelser för varje stad man verkar i. Vyn är kartcentrerad. I kartan kan man se information om aktuell status för alla tillgängliga resurser i vald stad, samt även filtrera kartvyn baserat på resursers typ, identitet eller status. Denna vy används också för att skicka manuella driftkommandon till enskilda cyklar. Det kan t ex  vara ett kommando för att stoppa cykeln, om administratören ser behov av det.
 </p>
@@ -235,27 +235,27 @@ FRÅGA - MAN TÄNKER SIG ATT STOPPKOMMANDO TILL CYKELN BORDE SKE AUTOMATISKT OM 
 </div>
 </div>
 
-<div id="outline-container-orgdebda63" class="outline-3">
-<h3 id="orgdebda63">Hantering av kunder</h3>
-<div class="outline-text-3" id="text-orgdebda63">
+<div id="outline-container-orgb8edfab" class="outline-3">
+<h3 id="orgb8edfab">Hantering av kunder</h3>
+<div class="outline-text-3" id="text-orgb8edfab">
 <p>
 Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets kunder, som kan filtreras på stad, användarnamn, antal gjorda resor m m. I denna vyn kan administratören också uppdatera information om enskilda kunder, t ex för att ge en kund en generell rabatt eller rabatt för en enskild resa. Administratören kan också skapa upp nya kunder i denna vy, även om detta i normalfallet hanteras av kunden själv.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org02db992" class="outline-3">
-<h3 id="org02db992">Behörighetshantering</h3>
-<div class="outline-text-3" id="text-org02db992">
+<div id="outline-container-org24a2a9a" class="outline-3">
+<h3 id="org24a2a9a">Behörighetshantering</h3>
+<div class="outline-text-3" id="text-org24a2a9a">
 <p>
 Vyn för behörighetshantering används för att skapa användare och tilldela dessa behörigheter i administratörssystemet. Huvudadministratören anges vid konfiguration av systemet, men alla övriga roller hanteras i detta gränssnitt.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8dec27b" class="outline-3">
-<h3 id="org8dec27b">Geodatahantering</h3>
-<div class="outline-text-3" id="text-org8dec27b">
+<div id="outline-container-org30d1518" class="outline-3">
+<h3 id="org30d1518">Geodatahantering</h3>
+<div class="outline-text-3" id="text-org30d1518">
 <p>
 Systemet har kraftfulla och lättanvända funktioner för att hantera nya marknader och nya resurser. I vyn för geodatahantering kan administratören lägga till nya städer för företaget, samt skapa, uppdatera och radera information om enskilda resurser.
 </p>
@@ -263,9 +263,9 @@ Systemet har kraftfulla och lättanvända funktioner för att hantera nya markna
 </div>
 </div>
 
-<div id="outline-container-orgc25691f" class="outline-2">
-<h2 id="orgc25691f">Kundens webbgränssnitt</h2>
-<div class="outline-text-2" id="text-orgc25691f">
+<div id="outline-container-org05b2729" class="outline-2">
+<h2 id="org05b2729">Kundens webbgränssnitt</h2>
+<div class="outline-text-2" id="text-org05b2729">
 <p>
 När en användare besöker kundens hemsida så behöver användaren registera ett konto för att kunna hyra elsparkcyklar. Det finns flera sätt att skapa ett konto. Antingen görs det på sedvanligt vis genom att uppge:
 </p>
@@ -304,9 +304,9 @@ Användaren kan också se sin färdhistorik som innefattar:
 </div>
 </div>
 
-<div id="outline-container-org321a654" class="outline-2">
-<h2 id="org321a654">Kundens app</h2>
-<div class="outline-text-2" id="text-org321a654">
+<div id="outline-container-org03ff5df" class="outline-2">
+<h2 id="org03ff5df">Kundens app</h2>
+<div class="outline-text-2" id="text-org03ff5df">
 <p>
 Elsparkcyklar som är registrerade i systemet för uthyrning och inte upptagna eller under service kan av en användare väljas för uthyrning.
 I verkligheten görs detta genom att scanna en QR-kod som identifierar elsparkcykeln. [referens](<a href="https://turiststockholm.se/sightseeing-guider/hyra-elsparkcykel-i-stockholm-med-voi/">https://turiststockholm.se/sightseeing-guider/hyra-elsparkcykel-i-stockholm-med-voi/</a>).
@@ -352,9 +352,9 @@ Denna kartbild visar var samtliga lediga elsparkcyklar finns att hitta.
 </div>
 </div>
 
-<div id="outline-container-org156dca4" class="outline-2">
-<h2 id="org156dca4">Cykelns program</h2>
-<div class="outline-text-2" id="text-org156dca4">
+<div id="outline-container-org5f86faa" class="outline-2">
+<h2 id="org5f86faa">Cykelns program</h2>
+<div class="outline-text-2" id="text-org5f86faa">
 <p>
 En elsparkcykels huvudsakliga uppgift är att hela tiden meddela sin positon och hälsa via API&rsquo;et.
 </p>
@@ -416,9 +416,9 @@ Varje elsparkcykel sparar också en egen historik över alla sina resor.
 </div>
 </div>
 
-<div id="outline-container-orga739588" class="outline-2">
-<h2 id="orga739588">REST-API</h2>
-<div class="outline-text-2" id="text-orga739588">
+<div id="outline-container-org37d0c4a" class="outline-2">
+<h2 id="org37d0c4a">REST-API</h2>
+<div class="outline-text-2" id="text-org37d0c4a">
 <p>
 (Hur göra en intern github länk till Richards fantastiska API spreadsheet?)
 (Känns som jag behöver skriva lite mer i denna del men kommer inte på vad.)
@@ -430,9 +430,9 @@ Systemets applikationer använder ett REST-API för att kommunicera med systemet
 </div>
 
 
-<div id="outline-container-orgdcd5b35" class="outline-3">
-<h3 id="orgdcd5b35">Dokumentation</h3>
-<div class="outline-text-3" id="text-orgdcd5b35">
+<div id="outline-container-orga1f916f" class="outline-3">
+<h3 id="orga1f916f">Dokumentation</h3>
+<div class="outline-text-3" id="text-orga1f916f">
 <p>
 För att underlätta för tredjepartsleverntörer att bygga externa tjänster och applicationer är
 REST-API&rsquo;et väldokumenterat.
@@ -445,9 +445,9 @@ REST-API&rsquo;et väldokumenterat.
 </div>
 </div>
 
-<div id="outline-container-org74bf89e" class="outline-3">
-<h3 id="org74bf89e">Versioner</h3>
-<div class="outline-text-3" id="text-org74bf89e">
+<div id="outline-container-orgee555d0" class="outline-3">
+<h3 id="orgee555d0">Versioner</h3>
+<div class="outline-text-3" id="text-orgee555d0">
 <p>
 REST-API&rsquo;et har byggts för att vara framtidssäkert där uppdateringar och tillägg hanteras med
 versionsnummer som en del i URI:n.
@@ -459,18 +459,18 @@ versionsnummer som en del i URI:n.
 </div>
 </div>
 
-<div id="outline-container-org3d80754" class="outline-3">
-<h3 id="org3d80754">Autentisering</h3>
-<div class="outline-text-3" id="text-org3d80754">
+<div id="outline-container-org736ff79" class="outline-3">
+<h3 id="org736ff79">Autentisering</h3>
+<div class="outline-text-3" id="text-org736ff79">
 <p>
 Alla applikationer som använder REST-API&rsquo;et måste autentisera (JWT?) sig för att kontrollera att endast
 endpoints som rör applikationen finns tillgängliga.
 </p>
 </div>
 
-<div id="outline-container-org9ac43f1" class="outline-4">
-<h4 id="org9ac43f1">Godkänd autentisering</h4>
-<div class="outline-text-4" id="text-org9ac43f1">
+<div id="outline-container-org912e407" class="outline-4">
+<h4 id="org912e407">Godkänd autentisering</h4>
+<div class="outline-text-4" id="text-org912e407">
 <p>
 En applikation för administratörer kan se alla användare i systemet.
 </p>
@@ -500,9 +500,9 @@ GET ../v1/users/
 </div>
 </div>
 
-<div id="outline-container-org3fa25ab" class="outline-4">
-<h4 id="org3fa25ab">Misslyckad autentisering</h4>
-<div class="outline-text-4" id="text-org3fa25ab">
+<div id="outline-container-orga734815" class="outline-4">
+<h4 id="orga734815">Misslyckad autentisering</h4>
+<div class="outline-text-4" id="text-orga734815">
 <p>
 En applikation för användare kan <b>inte</b> se alla användare i systemet.
 </p>
@@ -527,18 +527,18 @@ GET ../v1/users/
 </div>
 </div>
 
-<div id="outline-container-org7e3d50a" class="outline-2">
-<h2 id="org7e3d50a">Backend</h2>
-<div class="outline-text-2" id="text-org7e3d50a">
+<div id="outline-container-orgaaca413" class="outline-2">
+<h2 id="orgaaca413">Backend</h2>
+<div class="outline-text-2" id="text-orgaaca413">
 <p>
 TODO
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc8093c0" class="outline-2">
-<h2 id="orgc8093c0">Databas</h2>
-<div class="outline-text-2" id="text-orgc8093c0">
+<div id="outline-container-org73d89ec" class="outline-2">
+<h2 id="org73d89ec">Databas</h2>
+<div class="outline-text-2" id="text-org73d89ec">
 <p>
 Information systemets olika entiteter samlas i en databas. En entitet kan t.ex. vara &rdquo;användare&rdquo;, &rdquo;stad&rdquo; eller &rdquo;administratör&rdquo;. Varje entitet har en egen tabell i databasen. I detta avsnitt beskrivs vilka entiteter som finns i databasen, vilka egenskaper de har och hur entiteterna relaterar till varandra.
 </p>
@@ -552,9 +552,9 @@ Följande tabeller/entiteter finns i databasen:
 </p>
 </div>
 
-<div id="outline-container-org5872733" class="outline-3">
-<h3 id="org5872733">Stad</h3>
-<div class="outline-text-3" id="text-org5872733">
+<div id="outline-container-org697dcbb" class="outline-3">
+<h3 id="org697dcbb">Stad</h3>
+<div class="outline-text-3" id="text-org697dcbb">
 <p>
 Denna tabell innehåller information om städer. Varje stad har:
 </p>
@@ -579,9 +579,9 @@ En stad har också relationer till andra entiteter den kan ha en eller flera:
 </div>
 </div>
 
-<div id="outline-container-org0a1b6fd" class="outline-3">
-<h3 id="org0a1b6fd">Elsparkcykel</h3>
-<div class="outline-text-3" id="text-org0a1b6fd">
+<div id="outline-container-org1d03097" class="outline-3">
+<h3 id="org1d03097">Elsparkcykel</h3>
+<div class="outline-text-3" id="text-org1d03097">
 <p>
 Denna tabell innehåller information om elsparkcyklar. Varje elsparkcykel har
 </p>
@@ -604,9 +604,9 @@ En elsparkcykel har också relationer till andra entiteter, den kan ha:
 </div>
 </div>
 
-<div id="outline-container-org6507d32" class="outline-3">
-<h3 id="org6507d32">Laddstation</h3>
-<div class="outline-text-3" id="text-org6507d32">
+<div id="outline-container-org355fee0" class="outline-3">
+<h3 id="org355fee0">Laddstation</h3>
+<div class="outline-text-3" id="text-org355fee0">
 <p>
 Denna tabell innehåller information om laddstationer. Varje laddstation har:
 </p>
@@ -621,9 +621,9 @@ Bör vi också koppla elsparkcyklar till specifika laddstationer?
 </div>
 </div>
 
-<div id="outline-container-org0f18bd5" class="outline-3">
-<h3 id="org0f18bd5">Parkeringsplats</h3>
-<div class="outline-text-3" id="text-org0f18bd5">
+<div id="outline-container-org4891035" class="outline-3">
+<h3 id="org4891035">Parkeringsplats</h3>
+<div class="outline-text-3" id="text-org4891035">
 <p>
 Denna tabell innehåller information om parkeringsplatser, både tillåtna och otillåtna. Varje parkeringsplats har:
 </p>
@@ -635,9 +635,9 @@ Denna tabell innehåller information om parkeringsplatser, både tillåtna och o
 </div>
 </div>
 
-<div id="outline-container-org78d57c8" class="outline-3">
-<h3 id="org78d57c8">Zon</h3>
-<div class="outline-text-3" id="text-org78d57c8">
+<div id="outline-container-orgd3117ab" class="outline-3">
+<h3 id="orgd3117ab">Zon</h3>
+<div class="outline-text-3" id="text-orgd3117ab">
 <p>
 Denna tabell innehåller information om särskilda zoner. Varje zon har:
 </p>
@@ -650,9 +650,9 @@ Denna tabell innehåller information om särskilda zoner. Varje zon har:
 </div>
 </div>
 
-<div id="outline-container-org19d8f1d" class="outline-3">
-<h3 id="org19d8f1d">Verkstad (ska verkstäder vara med?)</h3>
-<div class="outline-text-3" id="text-org19d8f1d">
+<div id="outline-container-org26e0542" class="outline-3">
+<h3 id="org26e0542">Verkstad (ska verkstäder vara med?)</h3>
+<div class="outline-text-3" id="text-org26e0542">
 <p>
 Denna tabell innehåller information om verkstäder där elsparkcyklar servas och repareras. Varje verkstad har:
 </p>
@@ -663,9 +663,9 @@ Denna tabell innehåller information om verkstäder där elsparkcyklar servas oc
 </div>
 </div>
 
-<div id="outline-container-org0a9c7a2" class="outline-3">
-<h3 id="org0a9c7a2">Användare</h3>
-<div class="outline-text-3" id="text-org0a9c7a2">
+<div id="outline-container-org6ee3d71" class="outline-3">
+<h3 id="org6ee3d71">Användare</h3>
+<div class="outline-text-3" id="text-org6ee3d71">
 <p>
 Denna tabell innehåller information om användare. Varje användare har:
 </p>
@@ -693,9 +693,9 @@ En användare har också relationer till andra entiteter, den kan ha:
 </div>
 </div>
 
-<div id="outline-container-orgbad2066" class="outline-3">
-<h3 id="orgbad2066">Administratör</h3>
-<div class="outline-text-3" id="text-orgbad2066">
+<div id="outline-container-org32dd8b4" class="outline-3">
+<h3 id="org32dd8b4">Administratör</h3>
+<div class="outline-text-3" id="text-org32dd8b4">
 <p>
 Denna tabell innehåller information om administratörer. Varje administratör har:
 </p>
@@ -708,9 +708,9 @@ Denna tabell innehåller information om administratörer. Varje administratör h
 </div>
 </div>
 
-<div id="outline-container-orgff5ddaa" class="outline-3">
-<h3 id="orgff5ddaa">Resa</h3>
-<div class="outline-text-3" id="text-orgff5ddaa">
+<div id="outline-container-org80cf4e9" class="outline-3">
+<h3 id="org80cf4e9">Resa</h3>
+<div class="outline-text-3" id="text-org80cf4e9">
 <p>
 Denna tabell innehåller information om resor. Varje resa har:
 </p>
@@ -729,20 +729,35 @@ Nedanstående bild visar de entiteter som förekommer i databasen, deras attribu
 </div>
 </div>
 
-<div id="outline-container-org09876d7" class="outline-2">
-<h2 id="org09876d7">Exempel bilder</h2>
-<div class="outline-text-2" id="text-org09876d7">
+<div id="outline-container-org8390b9b" class="outline-2">
+<h2 id="org8390b9b">Exempel bilder</h2>
+<div class="outline-text-2" id="text-org8390b9b">
 
-<div id="org3fff7f3" class="figure">
+<div id="org67e4017" class="figure">
 <p><img src="./img/komponenter_oversikt.png" alt="komponenter_oversikt.png" />
 </p>
+<p><span class="figure-number">Illustration 1 </span>Översikt av systemet</p>
+</div>
+
+
+<div id="orga1d32a5" class="figure">
+<p><img src="./img/admin_cutout.png" alt="admin_cutout.png" />
+</p>
+<p><span class="figure-number">Illustration 2 </span>En del i Administratörgränssnitt</p>
+</div>
+
+
+<div id="org22cca9c" class="figure">
+<p><img src="./img/er.png" alt="er.png" />
+</p>
+<p><span class="figure-number">Illustration 1 </span>ER-modell</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">F&ouml;rfattare: Tomas, Patrik, Joel, Richard</p>
-<p class="date">Created: 2022-11-08 Tue 15:13</p>
+<p class="date">Created: 2022-11-08 Tue 15:35</p>
 </div>
 </body>
 </html>

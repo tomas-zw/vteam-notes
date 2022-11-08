@@ -365,4 +365,12 @@ Denna tabell innehåller information om resor. Varje resa har:
 Nedanstående bild visar de entiteter som förekommer i databasen, deras attribut och inbördes relationer.
 
 * Exempel bilder
+
+#+CAPTION: Översikt av systemet
 [[./img/komponenter_oversikt.png]]
+
+#+CAPTION: En del i Administratörgränssnitt
+[[./img/admin_cutout.png]]
+
+#+CAPTION: ER-modell
+[[./img/er.png]]
