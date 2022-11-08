@@ -5,7 +5,6 @@
 #+options: num:nil
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-
 * Inledning
 I detta dokument beskrivs ett system som hanterar uthyrning av elsparkcyklar. Systemet ger kunder möjlighet att skapa användarkonton och hyra cyklar, administratörer ges möjlighet att administrera cyklar, laddstationer, parkeringsplatser, städer och information om kunder. Systemet innehåller också ett program för cykeln som styr och övervakar denna.
 
@@ -19,16 +18,16 @@ Vår förhoppning är att det system som vi presenterar här kommer att kunna l�
 * Översikt över systemet
 
 ** Systemets användare
-Systemets huvudsakliga användare är kunder och administratörer.
+Systemets huvudsakliga användare är kunder (benämns härefter som användare) och administratörer.
 
-Kunder har möjlighet att hyra en cykel via en mobilapp som också visar status för senaste resan och en historik över gjorda resor. Kunder har också tillgång till ett webbgränssnitt där de kan se sina kontodetaljer och en historik över sin användning och betalningar.
+Användare har möjlighet att hyra en cykel via en mobilapplikation som också visar status för senaste resan och en historik över gjorda resor. Användare har också tillgång till ett webbgränssnitt där de kan se sina kontodetaljer och en historik över sin användning och betalningar.
 
-Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar och stationer samt få information om kunder. Administratörer kan också lägga till nya cyklar, laddstationer, zoner för parkering och städer.
+Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar och stationer samt få information om kunder. Administratörer kan också lägga till nya cyklar, laddstationer, zoner för parkering, förbjudna zoner och städer.
 
-- Systemets delar
-- Systemet omfattar följande huvudsakliga komponenter:
+** Systemets delar
+Systemet omfattar följande huvudsakliga komponenter:
 
-- Databas med information om cyklar, laddstationer, parkeringszoner, tillåtna zoner att cykla i, kunder och administratörer.
+- Databas med information om cyklar, laddstationer, parkeringszoner, tillåtna zoner att cykla i, användare och administratörer.
 
 - Backend - en komponent som sköter kopplingen mellan API och databas.
 
@@ -42,7 +41,10 @@ Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar
 
     - Ett cykelprogram som styr och övervakar cykeln (på, av, hastighet, begränsa hastighet, position, behöver service/laddning).
 
+Samtliga applikationer som kopplas mot API:et måste autentisera sin anslutning.
+
 Nedanstående diagram visar en översikt över systemets huvudkomponenter samt hur de relaterar till- och kommunicerar med varandra i olika lager. [3]
+
 
 
 
@@ -52,7 +54,7 @@ I följande avsnitt beskriver vi systemets olika delar i detalj.
 
 [1] https://www.transportstyrelsen.se/globalassets/global/publikationer-och-rapporter/vag/slutrapport-utredning-regler-eldrivna-enpersonsfordon.pdf
 
-[2] Jönköpingsposten 3/9 2022 (byt källa om möjligt) ytterligare källa: https://rkrattsbaser.gov.se/sfst?bet=1998:1276 $4
+[2] Jönköpingsposten 3/9 2022 samt https://rkrattsbaser.gov.se/sfst?bet=1998:1276 $4
 
 [3] https://www.oreilly.com/content/software-architecture-patterns/
 
@@ -66,36 +68,36 @@ UML-diagram (draw.io t.ex.)
 
 Komponentdiagram
 
-* Admin-gränssnitt
+* Administratörsgränssnitt
 
-Systemets admin-gränssnitt används av behöriga användare för att få en översikt över företagets alla resurser:
+Systemets administratörsgränssnitt används av behöriga användare för att få en översikt över företagets alla resurser:
 
 - Kunder
-- Städer man opererar i
+- Städer man är verksam i
 - Cyklar
 - Laddstationer
 - Parkeringsplatser
 - Områden med särskilda bestämmelser
 
-Admin-gränssnitt innehåller vyer för att inspektera resurser, skicka kommandon till enskilda cyklar, hantera kundinformation, hantera behörigheter, samt uppdatera systemet med ny data, t ex nya städer man etablerar sig i, nya cyklar, nya parkeringsplatser etc.
+Administratörsgränssnitt innehåller vyer för att inspektera resurser, skicka kommandon till enskilda cyklar, hantera kundinformation, hantera behörigheter, samt uppdatera systemet med ny data, t ex nya städer man etablerar sig i, nya cyklar, nya parkeringsplatser etc.
 
 ** Översikt och daglig drift
 
-I vyn för översikt och daglig drift presenteras all information kring cyklar, laddstationer, parkeringsplatser och områden med särskilda bestämmelser för varje stad man verkar i. Vyn är kartcentrerad. I kartan kan man se information om aktuell status för alla tillgängliga resurser i vald stad, samt även filtrera kartvyn baserat på resurser typ, identitet, eller status. Denna vy används också för att skicka manuella driftkommandon till enskilda cyklar. Det kan t ex vara ett kommando för att stoppa cykeln, om administratören ser behov av det.
+I vyn för översikt och daglig drift presenteras all information kring cyklar, laddstationer, parkeringsplatser och områden med särskilda bestämmelser för varje stad man verkar i. Vyn är kartcentrerad. I kartan kan man se information om aktuell status för alla tillgängliga resurser i vald stad, samt även filtrera kartvyn baserat på resursers typ, identitet eller status. Denna vy används också för att skicka manuella driftkommandon till enskilda cyklar. Det kan t ex  vara ett kommando för att stoppa cykeln, om administratören ser behov av det.
 
 FRÅGA - MAN TÄNKER SIG ATT STOPPKOMMANDO TILL CYKELN BORDE SKE AUTOMATISKT OM EN CYKEL ÅKER FÖR LÅNGT UT TEX.
 
 ** Hantering av kunder
 
-Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets kunder, som kan filtreras på stad, användarnamn, antal gjorda resor mm. I denna vyn kan administratören också uppdatera information om enskilda kunder, t ex för att ge en kund en generell rabatt eller rabatt för en enskild resa. Administratören kan också skapa upp nya kunder i denna vy, även om detta i normalfallet hanteras av kunden själv.
+Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets kunder, som kan filtreras på stad, användarnamn, antal gjorda resor m m. I denna vyn kan administratören också uppdatera information om enskilda kunder, t ex för att ge en kund en generell rabatt eller rabatt för en enskild resa. Administratören kan också skapa upp nya kunder i denna vy, även om detta i normalfallet hanteras av kunden själv.
 
 ** Behörighetshantering
 
-Vyn för behörighetshantering används för att skapa användare och tilldela dessa behörigheter i admin-systemet. Master-användaren anges vid konfiguration av systemet, men alla övriga roller hanteras i detta gränssnitt.
+Vyn för behörighetshantering används för att skapa användare och tilldela dessa behörigheter i administratörssystemet. Huvudadministratören anges vid konfiguration av systemet, men alla övriga roller hanteras i detta gränssnitt.
 
 ** Geodatahantering
 
-Systemet har kraftfulla och lättanvända funktioner för att hantera nya marknader och nuya resurser. I vyn för geodatahantering kan administratören lägga upp nya städer för företaget, samt skapa, uppdatera och radera information om enskilda resurser.
+Systemet har kraftfulla och lättanvända funktioner för att hantera nya marknader och nya resurser. I vyn för geodatahantering kan administratören lägga till nya städer för företaget, samt skapa, uppdatera och radera information om enskilda resurser.
 
 * Kundens webbgränssnitt
 
@@ -157,10 +159,10 @@ En elsparkcykels huvudsakliga uppgift är att hela tiden meddela sin positon och
 Elsparkcykelns program har bara information som rör sin egen position samt hälsa och övrig information
 som rör dess omgivning skickas till den från backend.
 
-- Uthyrd till en kund
-- Kund avslutar lånet
+- Uthyrd till en användare
+- användare avslutar hyran
 - Begränsa hastighet när den befinner sig i specifika zoner
-- Stoppa den ifall den är utanför tillåtet område.
+- Stoppa elsparkcykeln ifall den är utanför tillåtet område.
 - Intagen på service
 - Service utförd
 
@@ -169,24 +171,195 @@ så skickas den informationen till backend.
 
 - Batterinivån är låg
 - En lampa har gått sönder
-- Punktering etc
+- Punktering etc.
 
-Det är endast när elsparkcykelns status har blivit ändrad till 'uthyrd' eller på 'service' som
-elsparkcykeln är upplåst och går att köra. Så fort dess status återvänder till 'ledig' så
+Det är endast när elsparkcykelns status har blivit ändrad till "uthyrd" eller på "service som
+elsparkcykeln är upplåst och går att köra. Så fort dess status återvänder till "ledig" så
 stängs den av och bromsas, och det enda sättat att flytta den är då att fysiskt lyfta upp och bära bort den.
 Blir det rörelse på en elsparkcykel som ej är uthyrd skickas då en varning omgående till backend,
-och sedan med ett tätt intervall tills den återigen står stilla. Så att personal kan hitta eventuellt stulna
+och sedan med ett tätt intervall tills den återigen står stilla. Detta möjliggör att personal kan hitta eventuellt stulna
 elsparkcykelar.
 
 Tusentals elsparkcyklar finns i systemet. Så för att minimera belastningen på API och backend så
 uppdaterar dom sin position med olika intervall beroende på olika faktorer.
 
-- En uthyrd elsparkcykel i rörelse skickar positionisdata ofta
+- En uthyrd elsparkcykel i rörelse skickar positionsdata ofta
 - En ledig och stillastående elsparkcykel skickar positionsdata sällan
 - En elsparkcykel på laddning eller service skickar positionsdata sällan
 
 Varje elsparkcykel sparar också en egen historik över alla sina resor.
 
-- Resans kund
+- Resans användare
 - Resans startposition samt klockslag
 - Resans slutposition samt klockslag
+
+* REST-API
+
+(Hur göra en intern github länk till Richards fantastiska API spreadsheet?)
+(Känns som jag behöver skriva lite mer i denna del men kommer inte på vad.)
+
+Systemets applikationer använder ett REST-API för att kommunicera med systemets backend.
+
+
+** Dokumentation
+
+För att underlätta för tredjepartsleverntörer att bygga externa tjänster och applicationer är
+REST-API'et väldokumenterat.
+
+- Länk till dokumentationen?
+- Ett exempel från dokumentationen på en enskild endpoint?
+
+** Versioner
+
+REST-API'et har byggts för att vara framtidssäkert där uppdateringar och tillägg hanteras med
+versionsnummer som en del i URI:n.
+
+- .../v1/endpoint
+
+** Autentisering
+
+Alla applikationer som använder REST-API'et måste autentisera (JWT?) sig för att kontrollera att endast
+endpoints som rör applikationen finns tillgängliga.
+
+*** Godkänd autentisering
+
+En applikation för administratörer kan se alla användare i systemet.
+
+#+begin_src
+GET ../v1/users/
+#+end_src
+
+#+begin_src JSON
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            ...
+
+        },
+        {
+            "id": 2,
+            "name": "Jane Doe",
+            ...
+        }
+    ]
+}
+#+end_src
+
+*** Misslyckad autentisering
+
+En applikation för användare kan *inte* se alla användare i systemet.
+
+#+begin_src
+GET ../v1/users/
+#+end_src
+
+#+begin_src JSON
+{
+    "errors": {
+        "status": 401,
+        "source": "/users",
+        "title": "Authorization failed",
+        "detail": "No valid API key provided."
+    }
+}
+#+end_src
+
+* Backend
+TODO
+
+* Databas
+Information systemets olika entiteter samlas i en databas. En entitet kan t.ex. vara "användare", "stad" eller "administratör". Varje entitet har en egen tabell i databasen. I detta avsnitt beskrivs vilka entiteter som finns i databasen, vilka egenskaper de har och hur entiteterna relaterar till varandra.
+
+Den databas som ingår i systemet är en DATABASTYP. Systemet kommunicerar med databasen via ORM/SQL/Redis? (Byggs ut när vi har bestämt oss)
+
+Följande tabeller/entiteter finns i databasen:
+
+** Stad
+Denna tabell innehåller information om städer. Varje stad har:
+
+- ett unikt id som identifierar staden i systemet
+- ett namn
+- en geografisk position
+
+En stad har också relationer till andra entiteter den kan ha en eller flera:
+
+- Elsparkcyklar
+- Laddstationer
+- Parkeringsplatser
+- Zoner
+- Verkstäder?
+
+** Elsparkcykel
+Denna tabell innehåller information om elsparkcyklar. Varje elsparkcykel har
+- ett unikt id
+- en position
+- en status, ett värde som visar om elsparkcykeln är ok, laddas eller behöver service
+- en batterinivå
+- en uthyrningsstatus som visar om elsparkcykeln är uthyrd eller inte
+- en hastighet
+
+En elsparkcykel har också relationer till andra entiteter, den kan ha:
+- en användare (om elsparkcykeln är uthyrd)
+- en eller flera (historiska) resor
+
+** Laddstation
+Denna tabell innehåller information om laddstationer. Varje laddstation har:
+- ett unikt id
+- en position
+
+Bör vi också koppla elsparkcyklar till specifika laddstationer?
+
+** Parkeringsplats
+Denna tabell innehåller information om parkeringsplatser, både tillåtna och otillåtna. Varje parkeringsplats har:
+- ett unikt id
+- en position
+- en typ som talar om ifall detta är en "+parkeringsplats" en vanlig parkeringsplats eller en förbjuden parkeringsplats
+
+** Zon
+Denna tabell innehåller information om särskilda zoner. Varje zon har:
+- ett unikt id
+- en position
+- en typ som visar om det är tillåtet att färdas i zonen eller inte
+- en hastighetsbegränsning som bestämmer högsta tillåtna hastighet i zonen?
+
+** Verkstad (ska verkstäder vara med?)
+Denna tabell innehåller information om verkstäder där elsparkcyklar servas och repareras. Varje verkstad har:
+- ett unikt id
+- en position
+
+** Användare
+Denna tabell innehåller information om användare. Varje användare har:
+- ett unikt id
+- ett förnamn (får vi detta med OAuth?)
+- ett efternamn (får vi detta med OAuth?)
+- en adress (får vi detta med OAuth?)
+- en faktureringsadress (får vi detta med OAuth?)
+- ett användarnamn (behöver vi detta med OAuth?)
+- ett lösenord (behöver vi detta med OAuth?)
+- en e-postadress
+- ett saldo
+- en position? (behöver vi användarnas positioner?)
+- en status som visar om användaren är inloggad eller inte? (behöver vi detta?)
+
+En användare har också relationer till andra entiteter, den kan ha:
+- en elsparkcykel (om användaren hyr en cykel)
+- en eller flera (historiska) resor
+
+** Administratör
+Denna tabell innehåller information om administratörer. Varje administratör har:
+- ett unikt id
+- ett användarnamn
+- ett lösenord
+- en typ som beskriver administratörens behörighet (huvudadministratör eller vanlig administratör)
+
+** Resa
+Denna tabell innehåller information om resor. Varje resa har:
+- ett unikt id
+- en startposition
+- en slutposition
+- en starttid
+- en sluttid
+
+Nedanstående bild visar de entiteter som förekommer i databasen, deras attribut och inbördes relationer.
