@@ -1,15 +1,17 @@
-#+title: Elsparkcyklar AB
-#+author: Tomas Zwolinski, Patrik Malvenius, Joel ingenaning, Richard Sonnerberg
+#+title: V-team SDS
+#+author: Tomas, Patrik, Joel, Richard
 #+description: SDS utkast
 #+language: sv
 #+options: num:nil
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* Inledning
+* Elsparkcyklar AB
+
+** Inledning
 
 I detta dokument beskrivs ett system som hanterar uthyrning av elsparkcyklar. Systemet ger kunder möjlighet att skapa användarkonton och hyra cyklar, administratörer ges möjlighet att administrera cyklar, laddstationer, parkeringsplatser, städer och information om kunder. Systemet innehåller också ett program för cykeln som styr och övervakar denna.
 
-** Bakgrund
+*** Bakgrund
 
 Företaget "Svenska Elsparkcyklar AB" har utryckt ett behov av ett system som kan hantera uthyrning av elsparkcyklar i svenska städer. För närvarande är företaget etablerat och har verksamhet i Örebro, Eskilstuna och Vansbro och planerar att expandera till fler med stöd av ett nytt datasystem.
 
@@ -20,7 +22,7 @@ Vår förhoppning är att det system som vi presenterar här kommer att kunna l�
 #+CAPTION: Översikt av systemet
 [[./sds_sammansatt/overblick.svg]]
 
-** Systemets användare
+*** Systemets användare
 
 Systemets huvudsakliga användare är kunder (benämns härefter som användare) och administratörer.
 
@@ -28,7 +30,7 @@ Användare har möjlighet att hyra en cykel via en mobilapplikation som också v
 
 Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar och stationer samt få information om kunder. Administratörer kan också lägga till nya cyklar, laddstationer, zoner för parkering, zoner med särskilda regler och städer.
 
-** Systemets delar
+*** Systemets delar
 
 Systemet omfattar följande huvudsakliga komponenter:
 
@@ -55,7 +57,7 @@ Nedanstående diagram visar en översikt över systemets huvudkomponenter samt h
 
 I följande avsnitt beskriver vi systemets olika delar i detalj.
 
-* Användarens app
+** Användarens app
 
 #+CAPTION: Hemskärm i mobilapp
 [[./sds_sammansatt/mobile_-_home.png]]
@@ -86,7 +88,7 @@ Denna bild ger en översikt över flödet för att hyra en elsparkcykel i använ
 
 [4] Se <https://reactjs.org/>
 
-* Användarens webbgränssnitt
+** Användarens webbgränssnitt
 
 #+CAPTION: Hemskärm i webbläsare för dator
 [[./sds_sammansatt/desktop_-_home.png]]
@@ -124,7 +126,7 @@ Nedanstående diagram visar flödet i användarens webbgränssnitt:
 #+CAPTION: Flödet i användarens webbgränssnitt
 [[./sds_sammansatt/användarens_webbgränssnitt.drawio.png]]
 
-* Administratörsgränssnitt
+** Administratörsgränssnitt
 
 Administratörsgränssnittet byggs i React - ett JavaScript bibliotek för att skapa användargränssnitt.[5] JavaScript-biblioteket Leaflet används för att skapa och hantera kartor och geodata.
 
@@ -139,35 +141,35 @@ Systemets administratörsgränssnitt används av behöriga användare för att f
 
 Administratörsgränssnitt innehåller vyer för att inspektera resurser, skicka kommandon till enskilda cyklar, hantera kundinformation, hantera behörigheter, samt uppdatera systemet med ny data, t ex nya städer man etablerar sig i, nya cyklar, nya parkeringsplatser etc.
 
-** Översikt och daglig drift
+*** Översikt och daglig drift
 
 I vyn för översikt och daglig drift presenteras all information kring cyklar, laddstationer, parkeringsplatser och områden med särskilda bestämmelser för varje stad man verkar i. Vyn är kartcentrerad. I kartan kan man se information om aktuell status för alla tillgängliga resurser i vald stad, samt även filtrera kartvyn baserat på resursers typ, identitet eller status. Denna vy används också för att skicka manuella driftkommandon till enskilda cyklar. Det kan t ex  vara ett kommando för att stoppa cykeln, om administratören ser behov av det.
 
 #+CAPTION: Översiktsvy från systemet
 [[./sds_sammansatt/admin_oversikt.drawio.png]]
 
-** Hantering av kunder
+*** Hantering av kunder
 
 Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets kunder, som kan filtreras på stad, användarnamn, antal gjorda resor m m. I denna vyn kan administratören också uppdatera information om enskilda kunder, t ex för att ge en kund en generell rabatt eller rabatt för en enskild resa. Administratören kan också skapa upp nya kunder i denna vy, även om detta i normalfallet hanteras av kunden själv.
 
 #+CAPTION: Kundvy från systemet
 [[./sds_sammansatt/admin_kundvy.drawio.png]]
 
-** Behörighetshantering
+*** Behörighetshantering
 
 Vyn för behörighetshantering används för att skapa användare och tilldela dessa behörigheter i administratörssystemet. Huvudadministratören anges vid konfiguration av systemet, men alla övriga roller hanteras i detta gränssnitt.
 
 #+CAPTION: Behörighetsvy från systemet
 [[./sds_sammansatt/admin_behorighet.drawio.png]]
 
-** Geodatahantering
+*** Geodatahantering
 
 Systemet har kraftfulla och lättanvända funktioner för att hantera nya marknader och nya resurser. I vyn för geodatahantering kan administratören lägga till nya städer för företaget, samt skapa, uppdatera och radera information om enskilda resurser.
 
 #+CAPTION: Kartredigeringsvy från systemet
 [[./sds_sammansatt/admin_kartred.drawio.png]]
 
-* Elsparkcykelns mjukvara
+** Elsparkcykelns mjukvara
 
 [[./sds_sammansatt/cykelkommunikation.svg]]
 
@@ -258,11 +260,11 @@ Nedanstående bild visar samtliga entiteter som förekommer i databasen, deras a
 #+CAPTION: ER-diagram
 [[./sds_sammansatt/databas-er.png]]
 
-* REST-API
+*** REST-API
 
 Systemets applikationer använder ett REST-API för att kommunicera med systemets backend. För att veta vilka routes vi behöver ha i REST-API:et så har följande substantiv identifierats (dessa stämmer överens med entiteterna i databasen):
 
-** Substantiv
+**** Substantiv
 
 - Användare
 - Administratör
@@ -273,7 +275,7 @@ Systemets applikationer använder ett REST-API för att kommunicera med systemet
 - Förbjuden zon
 - Verkstad
 
-** Verb
+**** Verb
 
 De identifierade substantiven behöver också utföra handlingar, därav följande verblista:
 
@@ -289,7 +291,7 @@ De identifierade substantiven behöver också utföra handlingar, därav följan
 - En stad ska innehålla elsparkcyklar, zoner etc.
 - En verkstad ska kunna utföra service på elsparkcyklar
 
-** Lista över routes
+**** Lista över routes
 
 `URL`                         | `GET`                                  | `POST`                         | `PUT`                                       | `DELETE`
 ------------------------------|:--------------------------------------:|:------------------------------:|:-------------------------------------------:|:-------------------:
@@ -329,7 +331,7 @@ De identifierade substantiven behöver också utföra handlingar, därav följan
 `/trips/{id}`                 | Visa en resa med id {id}     | :x:    | Modifiera en resa med id {id}           | Ta bort en resa med id {id}
 `/trips/{userId}`             | Visa alla resor med användar-id {användar-id}     | :x:    | :x:           | :x:
 
-** Dokumentation
+**** Dokumentation
 
 För att underlätta för tredjepartsleverntörer att bygga externa tjänster och applicationer är
 REST-API&rsquo;et väldokumenterat.
@@ -337,21 +339,19 @@ REST-API&rsquo;et väldokumenterat.
 - Länk till dokumentationen?
 - Ett exempel från dokumentationen på en enskild endpoint?
 
-** Versioner
+**** Versioner
 
 REST-API&rsquo;et har byggts för att vara framtidssäkert där uppdateringar och tillägg hanteras med
 versionsnummer som en del i ~~URI~~URL:en.
 
-** Autentisering
+**** Autentisering
 
 Alla applikationer som använder REST-API&rsquo;et måste autentisera sig med hjälp av JSON Web Tokens för att kontrollera att endast
 endpoints som rör applikationen finns tillgängliga.
 
-*** Godkänd autentisering
+***** Godkänd autentisering
 
 En applikation för administratörer kan se alla användare i systemet.
-
-#+begin_src json
 
     GET ../v1/users/
 
@@ -369,13 +369,11 @@ En applikation för administratörer kan se alla användare i systemet.
             }
         ]
     }
-#+end_src
 
-*** Misslyckad autentisering
+***** Misslyckad autentisering
 
 En applikation för användare kan **inte** se alla användare i systemet.
 
-#+begin_src json
     GET ../v1/users/
 
     {
@@ -386,8 +384,6 @@ En applikation för användare kan **inte** se alla användare i systemet.
             "detail": "No valid API key provided."
         }
     }
-#+end_src
-
 
 * Tester
 
