@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
 <head>
-<!-- 2022-11-21 Mon 21:18 -->
+<!-- 2022-11-22 Tue 09:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elsparkcyklar AB</title>
-<meta name="author" content="Tomas Zwolinski, Patrik Malvenius, Joel ingenaning, Richard Sonnerberg" />
+<meta name="author" content="Tomas Zwolinski, Patrik Malvenius, Joel Löfgren, Richard Sönnerberg" />
 <meta name="description" content="SDS utkast" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
@@ -24,65 +24,111 @@
 <h2>Inneh&aring;ll</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org79d9f7d">Inledning</a>
+<li><a href="#org9ad489c">Inledning</a>
 <ul>
-<li><a href="#org91f19d8">Bakgrund</a></li>
-<li><a href="#org8d0ffa2">Systemets användare</a></li>
-<li><a href="#org4098e13">Systemets delar</a></li>
+<li><a href="#org3bc3b5e">Bakgrund</a></li>
+<li><a href="#orgbe2e15f">Systemets användare</a></li>
+<li><a href="#orgf099551">Systemets delar</a></li>
 </ul>
 </li>
-<li><a href="#orgccade15">Användarens app</a></li>
-<li><a href="#orgeeb086b">Användarens webbgränssnitt</a></li>
-<li><a href="#org1f1c27e">Administratörsgränssnitt</a>
+<li><a href="#orgdd051a6">Användarens app</a></li>
+<li><a href="#org4d85e27">Användarens webbgränssnitt</a></li>
+<li><a href="#orgf71d916">Administratörsgränssnitt</a>
 <ul>
-<li><a href="#org697e8bd">Översikt och daglig drift</a></li>
-<li><a href="#org3412728">Hantering av kunder</a></li>
-<li><a href="#orga12f0b3">Behörighetshantering</a></li>
-<li><a href="#orgc555c0e">Geodatahantering</a></li>
+<li><a href="#org8f38709">Översikt och daglig drift</a></li>
+<li><a href="#org10ac5b1">Hantering av kunder</a></li>
+<li><a href="#org7010b1f">Behörighetshantering</a></li>
+<li><a href="#org7c41eb3">Geodatahantering</a></li>
 </ul>
 </li>
-<li><a href="#org6a067a0">Elsparkcykelns mjukvara</a></li>
-<li><a href="#org34d5eb5">Backend</a>
+<li><a href="#org936456f">Elsparkcykelns mjukvara</a></li>
+<li><a href="#orgd46e336">Backend</a>
 <ul>
-<li><a href="#orgb32d8c4">Backendmodeller</a></li>
-<li><a href="#orgac08a9f">Databas</a></li>
+<li><a href="#orga9e90cb">Backendmodeller</a></li>
+<li><a href="#orga2742e9">Databas</a></li>
 </ul>
 </li>
-<li><a href="#orge453345">REST-API</a>
+<li><a href="#orgd80dee5">REST-API</a>
 <ul>
-<li><a href="#org508c61f">Substantiv</a></li>
-<li><a href="#orgace7093">Verb</a></li>
-<li><a href="#org5770396">Lista över routes</a></li>
-<li><a href="#org2959182">Dokumentation</a></li>
-<li><a href="#org92ab708">Versioner</a></li>
-<li><a href="#org8b19b0e">Autentisering</a>
+<li><a href="#org5b8978f">Substantiv</a></li>
+<li><a href="#org24a140b">Verb</a></li>
+<li><a href="#org92cdac3">Lista över routes</a></li>
+<li><a href="#orgf2076dc">Dokumentation</a></li>
+<li><a href="#org8afc836">Versioner</a></li>
+<li><a href="#org8cc3e7e">Autentisering</a>
 <ul>
-<li><a href="#orgb8ad199">Godkänd autentisering</a></li>
-<li><a href="#org8a9d902">Misslyckad autentisering</a></li>
+<li><a href="#org4a007dd">Godkänd autentisering</a></li>
+<li><a href="#org4bee2c3">Misslyckad autentisering</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf1f741e">Tester</a></li>
-<li><a href="#org6ff1bfc">CI/CD</a></li>
-<li><a href="#org8bc60e1">Simulering</a></li>
-<li><a href="#orgb669a19">Driftsättning</a></li>
-<li><a href="#orgfff2571">Referenser</a></li>
+<li><a href="#org308d0b2">Tester</a></li>
+<li><a href="#org0f663a1">CI/CD</a></li>
+<li><a href="#org6b02525">Simulering</a></li>
+<li><a href="#org857db57">Driftsättning</a></li>
+<li><a href="#org5217a21">Referenser</a></li>
+</ul>
+</div>
+</div>
+<div id="table-of-contents" role="doc-toc">
+<h2>Inneh&aring;ll</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org9ad489c">Inledning</a>
+<ul>
+<li><a href="#org3bc3b5e">Bakgrund</a></li>
+<li><a href="#orgbe2e15f">Systemets användare</a></li>
+<li><a href="#orgf099551">Systemets delar</a></li>
+</ul>
+</li>
+<li><a href="#orgdd051a6">Användarens app</a></li>
+<li><a href="#org4d85e27">Användarens webbgränssnitt</a></li>
+<li><a href="#orgf71d916">Administratörsgränssnitt</a>
+<ul>
+<li><a href="#org8f38709">Översikt och daglig drift</a></li>
+<li><a href="#org10ac5b1">Hantering av kunder</a></li>
+<li><a href="#org7010b1f">Behörighetshantering</a></li>
+<li><a href="#org7c41eb3">Geodatahantering</a></li>
+</ul>
+</li>
+<li><a href="#org936456f">Elsparkcykelns mjukvara</a></li>
+<li><a href="#orgd46e336">Backend</a>
+<ul>
+<li><a href="#orga9e90cb">Backendmodeller</a></li>
+<li><a href="#orga2742e9">Databas</a></li>
+</ul>
+</li>
+<li><a href="#orgd80dee5">REST-API</a>
+<ul>
+<li><a href="#org5b8978f">Substantiv</a></li>
+<li><a href="#org24a140b">Verb</a></li>
+<li><a href="#org92cdac3">Lista över routes</a></li>
+<li><a href="#orgf2076dc">Dokumentation</a></li>
+<li><a href="#org8afc836">Versioner</a></li>
+<li><a href="#org8cc3e7e">Autentisering</a></li>
+</ul>
+</li>
+<li><a href="#org308d0b2">Tester</a></li>
+<li><a href="#org0f663a1">CI/CD</a></li>
+<li><a href="#org6b02525">Simulering</a></li>
+<li><a href="#org857db57">Driftsättning</a></li>
+<li><a href="#org5217a21">Referenser</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org79d9f7d" class="outline-2">
-<h2 id="org79d9f7d">Inledning</h2>
-<div class="outline-text-2" id="text-org79d9f7d">
+<div id="outline-container-org9ad489c" class="outline-2">
+<h2 id="org9ad489c">Inledning</h2>
+<div class="outline-text-2" id="text-org9ad489c">
 <p>
 I detta dokument beskrivs ett system som hanterar uthyrning av elsparkcyklar. Systemet ger kunder möjlighet att skapa användarkonton och hyra cyklar, administratörer ges möjlighet att administrera cyklar, laddstationer, parkeringsplatser, städer och information om kunder. Systemet innehåller också ett program för cykeln som styr och övervakar denna.
 </p>
 </div>
 
-<div id="outline-container-org91f19d8" class="outline-3">
-<h3 id="org91f19d8">Bakgrund</h3>
-<div class="outline-text-3" id="text-org91f19d8">
+<div id="outline-container-org3bc3b5e" class="outline-3">
+<h3 id="org3bc3b5e">Bakgrund</h3>
+<div class="outline-text-3" id="text-org3bc3b5e">
 <p>
 Företaget &rdquo;Svenska Elsparkcyklar AB&rdquo; har utryckt ett behov av ett system som kan hantera uthyrning av elsparkcyklar i svenska städer. För närvarande är företaget etablerat och har verksamhet i Örebro, Eskilstuna och Vansbro och planerar att expandera till fler med stöd av ett nytt datasystem.
 </p>
@@ -96,7 +142,7 @@ Vår förhoppning är att det system som vi presenterar här kommer att kunna l�
 </p>
 
 
-<div id="org033a077" class="figure">
+<div id="org8cfc778" class="figure">
 <p><img src="./sds_sammansatt/overblick.svg" alt="overblick.svg" class="org-svg" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Översikt av systemet</p>
@@ -104,9 +150,9 @@ Vår förhoppning är att det system som vi presenterar här kommer att kunna l�
 </div>
 </div>
 
-<div id="outline-container-org8d0ffa2" class="outline-3">
-<h3 id="org8d0ffa2">Systemets användare</h3>
-<div class="outline-text-3" id="text-org8d0ffa2">
+<div id="outline-container-orgbe2e15f" class="outline-3">
+<h3 id="orgbe2e15f">Systemets användare</h3>
+<div class="outline-text-3" id="text-orgbe2e15f">
 <p>
 Systemets huvudsakliga användare är kunder (benämns härefter som användare) och administratörer.
 </p>
@@ -121,9 +167,9 @@ Administratörer har möjlighet att via ett webbgränssnitt se status på cyklar
 </div>
 </div>
 
-<div id="outline-container-org4098e13" class="outline-3">
-<h3 id="org4098e13">Systemets delar</h3>
-<div class="outline-text-3" id="text-org4098e13">
+<div id="outline-container-orgf099551" class="outline-3">
+<h3 id="orgf099551">Systemets delar</h3>
+<div class="outline-text-3" id="text-orgf099551">
 <p>
 Systemet omfattar följande huvudsakliga komponenter:
 </p>
@@ -155,7 +201,7 @@ Nedanstående diagram visar en översikt över systemets huvudkomponenter samt h
 </p>
 
 
-<div id="org746597e" class="figure">
+<div id="orgf663f89" class="figure">
 <p><img src="./sds_sammansatt/komponenter_översikt.png" alt="komponenter_översikt.png" />
 </p>
 <p><span class="figure-number">Illustration 2 </span>Översikt över systemets huvudkomponenter</p>
@@ -168,11 +214,11 @@ I följande avsnitt beskriver vi systemets olika delar i detalj.
 </div>
 </div>
 
-<div id="outline-container-orgccade15" class="outline-2">
-<h2 id="orgccade15">Användarens app</h2>
-<div class="outline-text-2" id="text-orgccade15">
+<div id="outline-container-orgdd051a6" class="outline-2">
+<h2 id="orgdd051a6">Användarens app</h2>
+<div class="outline-text-2" id="text-orgdd051a6">
 
-<div id="orgaf485a4" class="figure">
+<div id="orgf527014" class="figure">
 <p><img src="./sds_sammansatt/mobile_-_home.png" alt="mobile_-_home.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Hemskärm i mobilapp</p>
@@ -218,7 +264,7 @@ Denna bild ger en översikt över flödet för att hyra en elsparkcykel i använ
 </p>
 
 
-<div id="org08423ab" class="figure">
+<div id="orgce08409" class="figure">
 <p><img src="./sds_sammansatt/användarens_app.drawio.png" alt="användarens_app.drawio.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>flödet i användarens app vid uthyrning av elsparkcykel.</p>
@@ -230,11 +276,11 @@ Denna bild ger en översikt över flödet för att hyra en elsparkcykel i använ
 </div>
 </div>
 
-<div id="outline-container-orgeeb086b" class="outline-2">
-<h2 id="orgeeb086b">Användarens webbgränssnitt</h2>
-<div class="outline-text-2" id="text-orgeeb086b">
+<div id="outline-container-org4d85e27" class="outline-2">
+<h2 id="org4d85e27">Användarens webbgränssnitt</h2>
+<div class="outline-text-2" id="text-org4d85e27">
 
-<div id="org6a8e871" class="figure">
+<div id="org874684c" class="figure">
 <p><img src="./sds_sammansatt/desktop_-_home.png" alt="desktop_-_home.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Hemskärm i webbläsare för dator</p>
@@ -287,7 +333,7 @@ Nedanstående diagram visar flödet i användarens webbgränssnitt:
 </p>
 
 
-<div id="org2750128" class="figure">
+<div id="org1e9f403" class="figure">
 <p><img src="./sds_sammansatt/användarens_webbgränssnitt.drawio.png" alt="användarens_webbgränssnitt.drawio.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Flödet i användarens webbgränssnitt</p>
@@ -295,9 +341,9 @@ Nedanstående diagram visar flödet i användarens webbgränssnitt:
 </div>
 </div>
 
-<div id="outline-container-org1f1c27e" class="outline-2">
-<h2 id="org1f1c27e">Administratörsgränssnitt</h2>
-<div class="outline-text-2" id="text-org1f1c27e">
+<div id="outline-container-orgf71d916" class="outline-2">
+<h2 id="orgf71d916">Administratörsgränssnitt</h2>
+<div class="outline-text-2" id="text-orgf71d916">
 <p>
 Administratörsgränssnittet byggs i React - ett JavaScript bibliotek för att skapa användargränssnitt.[5] JavaScript-biblioteket Leaflet används för att skapa och hantera kartor och geodata.
 </p>
@@ -320,15 +366,15 @@ Administratörsgränssnitt innehåller vyer för att inspektera resurser, skicka
 </p>
 </div>
 
-<div id="outline-container-org697e8bd" class="outline-3">
-<h3 id="org697e8bd">Översikt och daglig drift</h3>
-<div class="outline-text-3" id="text-org697e8bd">
+<div id="outline-container-org8f38709" class="outline-3">
+<h3 id="org8f38709">Översikt och daglig drift</h3>
+<div class="outline-text-3" id="text-org8f38709">
 <p>
 I vyn för översikt och daglig drift presenteras all information kring cyklar, laddstationer, parkeringsplatser och områden med särskilda bestämmelser för varje stad man verkar i. Vyn är kartcentrerad. I kartan kan man se information om aktuell status för alla tillgängliga resurser i vald stad, samt även filtrera kartvyn baserat på resursers typ, identitet eller status. Denna vy används också för att skicka manuella driftkommandon till enskilda cyklar. Det kan t ex  vara ett kommando för att stoppa cykeln, om administratören ser behov av det.
 </p>
 
 
-<div id="org2d2941a" class="figure">
+<div id="org0b04622" class="figure">
 <p><img src="./sds_sammansatt/admin_oversikt.drawio.png" alt="admin_oversikt.drawio.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Översiktsvy från systemet</p>
@@ -336,15 +382,15 @@ I vyn för översikt och daglig drift presenteras all information kring cyklar, 
 </div>
 </div>
 
-<div id="outline-container-org3412728" class="outline-3">
-<h3 id="org3412728">Hantering av kunder</h3>
-<div class="outline-text-3" id="text-org3412728">
+<div id="outline-container-org10ac5b1" class="outline-3">
+<h3 id="org10ac5b1">Hantering av kunder</h3>
+<div class="outline-text-3" id="text-org10ac5b1">
 <p>
 Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets kunder, som kan filtreras på stad, användarnamn, antal gjorda resor m m. I denna vyn kan administratören också uppdatera information om enskilda kunder, t ex för att ge en kund en generell rabatt eller rabatt för en enskild resa. Administratören kan också skapa upp nya kunder i denna vy, även om detta i normalfallet hanteras av kunden själv.
 </p>
 
 
-<div id="orgd73a931" class="figure">
+<div id="orge410fb6" class="figure">
 <p><img src="./sds_sammansatt/admin_kundvy.drawio.png" alt="admin_kundvy.drawio.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Kundvy från systemet</p>
@@ -352,15 +398,15 @@ Kundvyn är en klassisk listvy. Här kan man se en lista på alla företagets ku
 </div>
 </div>
 
-<div id="outline-container-orga12f0b3" class="outline-3">
-<h3 id="orga12f0b3">Behörighetshantering</h3>
-<div class="outline-text-3" id="text-orga12f0b3">
+<div id="outline-container-org7010b1f" class="outline-3">
+<h3 id="org7010b1f">Behörighetshantering</h3>
+<div class="outline-text-3" id="text-org7010b1f">
 <p>
 Vyn för behörighetshantering används för att skapa användare och tilldela dessa behörigheter i administratörssystemet. Huvudadministratören anges vid konfiguration av systemet, men alla övriga roller hanteras i detta gränssnitt.
 </p>
 
 
-<div id="orgf9bd1a7" class="figure">
+<div id="org941d962" class="figure">
 <p><img src="./sds_sammansatt/admin_behorighet.drawio.png" alt="admin_behorighet.drawio.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Behörighetsvy från systemet</p>
@@ -368,15 +414,15 @@ Vyn för behörighetshantering används för att skapa användare och tilldela d
 </div>
 </div>
 
-<div id="outline-container-orgc555c0e" class="outline-3">
-<h3 id="orgc555c0e">Geodatahantering</h3>
-<div class="outline-text-3" id="text-orgc555c0e">
+<div id="outline-container-org7c41eb3" class="outline-3">
+<h3 id="org7c41eb3">Geodatahantering</h3>
+<div class="outline-text-3" id="text-org7c41eb3">
 <p>
 Systemet har kraftfulla och lättanvända funktioner för att hantera nya marknader och nya resurser. I vyn för geodatahantering kan administratören lägga till nya städer för företaget, samt skapa, uppdatera och radera information om enskilda resurser.
 </p>
 
 
-<div id="orgec9dad3" class="figure">
+<div id="orga28f929" class="figure">
 <p><img src="./sds_sammansatt/admin_kartred.drawio.png" alt="admin_kartred.drawio.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Kartredigeringsvy från systemet</p>
@@ -385,11 +431,11 @@ Systemet har kraftfulla och lättanvända funktioner för att hantera nya markna
 </div>
 </div>
 
-<div id="outline-container-org6a067a0" class="outline-2">
-<h2 id="org6a067a0">Elsparkcykelns mjukvara</h2>
-<div class="outline-text-2" id="text-org6a067a0">
+<div id="outline-container-org936456f" class="outline-2">
+<h2 id="org936456f">Elsparkcykelns mjukvara</h2>
+<div class="outline-text-2" id="text-org936456f">
 
-<div id="orgf2e2949" class="figure">
+<div id="org75b25a1" class="figure">
 <p><img src="./sds_sammansatt/cykelkommunikation.svg" alt="cykelkommunikation.svg" class="org-svg" />
 </p>
 </div>
@@ -453,9 +499,9 @@ Vae elsparkcykel sparar också en egen historik över alla sina resor.
 </div>
 </div>
 
-<div id="outline-container-org34d5eb5" class="outline-2">
-<h2 id="org34d5eb5">Backend</h2>
-<div class="outline-text-2" id="text-org34d5eb5">
+<div id="outline-container-orgd46e336" class="outline-2">
+<h2 id="orgd46e336">Backend</h2>
+<div class="outline-text-2" id="text-orgd46e336">
 <p>
 De grundläggande kraven för systemets backend är:
 </p>
@@ -482,25 +528,25 @@ Några exempel på kommunikationen är:
 </p>
 
 
-<div id="org8a9e27b" class="figure">
+<div id="org7fa3c62" class="figure">
 <p><img src="./sds_sammansatt/backend_example.png" alt="backend_example.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>Några övergripande exempel på kommunikationen</p>
 </div>
 </div>
 
-<div id="outline-container-orgb32d8c4" class="outline-3">
-<h3 id="orgb32d8c4">Backendmodeller</h3>
-<div class="outline-text-3" id="text-orgb32d8c4">
+<div id="outline-container-orga9e90cb" class="outline-3">
+<h3 id="orga9e90cb">Backendmodeller</h3>
+<div class="outline-text-3" id="text-orga9e90cb">
 <p>
 I backend ingår ett lager med modeller som sköter kommunikationen mellan api och databas, alltså skickar in SQL-frågor till databasen och tar emot svar. I dessa modeller genomförs också olika beräkningar. Det kan tex handla om att beräkna kostnaden för en resa, eller beräkna om en cykel befinner sig inom en viss zon. För att göra de nödvändiga geografiska beräkningarna använder vi oss av geodatabibliotek som underlättar detta. Efter att ha undersökt olika bibliotek både för Python och JS kom vi fram till att JS biblioteken tycks vara mer lättanvända.[7] Vi kommer därför använda oss av TurfJS, ett bibliotek som som har flera funktioner som kommer att underlätta för oss att beräkna cyklarnas positioner och göra backendmodellerna effektivare.[7] [8]
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgac08a9f" class="outline-3">
-<h3 id="orgac08a9f">Databas</h3>
-<div class="outline-text-3" id="text-orgac08a9f">
+<div id="outline-container-orga2742e9" class="outline-3">
+<h3 id="orga2742e9">Databas</h3>
+<div class="outline-text-3" id="text-orga2742e9">
 <p>
 Information systemets olika entiteter samlas i en databas. En entitet kan t.ex. vara &rdquo;användare&rdquo;, &rdquo;stad&rdquo; eller &rdquo;administratör&rdquo;. I detta avsnitt beskrivs vilka entiteter som finns i databasen, vilka egenskaper de har och hur entiteterna relaterar till varandra.  
 Databasen som används är MariaDB. Det är en open source relations-databas. Den är baserad på MySQL databasen och använder traditionell SQL syntax.  
@@ -511,7 +557,7 @@ De fyra entiteter som utgör grunden för databasen är:
 </p>
 
 
-<div id="orgbaf541f" class="figure">
+<div id="org533f422" class="figure">
 <p><img src="./sds_sammansatt/databas-mjuk.png" alt="databas-mjuk.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>De fyra huvudsakliga entiteterna</p>
@@ -540,7 +586,7 @@ Nedanstående bild visar samtliga entiteter som förekommer i databasen, deras a
 </p>
 
 
-<div id="orgc94e40a" class="figure">
+<div id="org06aefcf" class="figure">
 <p><img src="./sds_sammansatt/databas-er.png" alt="databas-er.png" />
 </p>
 <p><span class="figure-number">Illustration 1 </span>ER-diagram</p>
@@ -549,17 +595,17 @@ Nedanstående bild visar samtliga entiteter som förekommer i databasen, deras a
 </div>
 </div>
 
-<div id="outline-container-orge453345" class="outline-2">
-<h2 id="orge453345">REST-API</h2>
-<div class="outline-text-2" id="text-orge453345">
+<div id="outline-container-orgd80dee5" class="outline-2">
+<h2 id="orgd80dee5">REST-API</h2>
+<div class="outline-text-2" id="text-orgd80dee5">
 <p>
 Systemets applikationer använder ett REST-API för att kommunicera med systemets backend. För att veta vilka routes vi behöver ha i REST-API:et så har följande substantiv identifierats (dessa stämmer överens med entiteterna i databasen):
 </p>
 </div>
 
-<div id="outline-container-org508c61f" class="outline-3">
-<h3 id="org508c61f">Substantiv</h3>
-<div class="outline-text-3" id="text-org508c61f">
+<div id="outline-container-org5b8978f" class="outline-3">
+<h3 id="org5b8978f">Substantiv</h3>
+<div class="outline-text-3" id="text-org5b8978f">
 <ul class="org-ul">
 <li>Användare</li>
 <li>Administratör</li>
@@ -573,9 +619,9 @@ Systemets applikationer använder ett REST-API för att kommunicera med systemet
 </div>
 </div>
 
-<div id="outline-container-orgace7093" class="outline-3">
-<h3 id="orgace7093">Verb</h3>
-<div class="outline-text-3" id="text-orgace7093">
+<div id="outline-container-org24a140b" class="outline-3">
+<h3 id="org24a140b">Verb</h3>
+<div class="outline-text-3" id="text-org24a140b">
 <p>
 De identifierade substantiven behöver också utföra handlingar, därav följande verblista:
 </p>
@@ -596,54 +642,358 @@ De identifierade substantiven behöver också utföra handlingar, därav följan
 </div>
 </div>
 
-<div id="outline-container-org5770396" class="outline-3">
-<h3 id="org5770396">Lista över routes</h3>
-<div class="outline-text-3" id="text-org5770396">
-<p>
-`URL`                         | `GET`                                  | `POST`                         | `PUT`                                       | `DELETE`
--------------------------&#x2013;&#x2014;|:---------------------------------&#x2013;&#x2014;:|:-------------------------&#x2013;&#x2014;:|:--------------------------------------&#x2013;&#x2014;:|:--------------&#x2013;&#x2014;:
-`/users/`                     | Visa alla användare                    | Skapa en ny användare          | :x:                                         | :x:
-`/users/{id}`                 | Visa en användare med id {id}          | :x:                            | Modifiera en användare med id {id}          | Ta bort en användare med id {id}
-`/users/{id}/position`        | Visa positionen för en användare med id {id} | :x:                      | :x: | :x:
-`/users/{city}/`              | Visa alla användare som för tillfället hyr en elsparkcykel i stad {city} | :x: | :x: | :x:
-`/users/online/`              | Visa alla användare som för tillfället är online | :x: | :x: | :x:
-`/users/offline/`             | Visa alla användare som för tillfället är offline | :x: | :x: | :x:
-`/administrators/`            | Visa alla administratörer              | Skapa en ny administratör      | :x:                                         | :x:
-`/administrators/{id}`        | Visa en administratörer med id {id}    | :x:                            | Modifiera en administratör med id {id}      | Ta bort en administratör med id {id}
-`/mainAdministrators/`        | Visa alla huvudadministratör           | Skapa en ny huvudadministratör | :x:                                         | :x:
-`/mainAdministrators/{id}`    | Visa en huvudadministratör med id {id} | :x:                            | Modifiera en huvudadministratör med id {id} | Ta bort en huvudadministratör med id {id}
-`/cities/`                    | Visa alla städer                       | Skapa en ny stad               | :x:                                         | :x:
-`/cities/{id}`                | Visa en stad med id {id}               | :x:                            | Modifiera en stad med id {id}               | Ta bort en stad med id {id}
-`/cities/{id}/forbiddenZones/` | Visa alla förbjudna zoner i stad med id {id} | :x: | :x: | :x:
-`/cities/{id}/electricScooters/` | Visa alla elsparkcyklar i stad med id {id} | :x: | :x: | :x:
-`/cities/{id}/chargingStations/`  | Visa alla laddstationer i stad med id {id} | :x: | :x: | :x:
-`/cities/{id}/workshops/`     | Visa alla verkstäder i stad med id {id}  | :x:           | :x:                                         | :x:
-`/electricScooters/`          | Visa alla elsparkcyklar                | Skapa en ny elsparkcykel       | :x:                                         | :x:
-`/electricScooters/rented`    | Visa alla elsparkcyklar som just nu är uthyrda | :x: | :x:                                         | :x:
-`/electricScooters/stale`     | Visa alla elsparkcyklar som just nu inte är uthyrda | :x: | :x:                                         | :x:
-`/electricScooters/serviced`  | Visa alla elsparkcyklar som just nu är under service | :x: | :x:                                         | :x:
-`/electricScooters/{id}`      | Visa en elsparkcykel med id {id}       | :x:                            | Modifiera en elsparkcykel med id {id}       | Ta bort en elsparkcykel med id {id}
-`/electricScooters/{id}/position` | Visa positionen för en elsparkcykel med id {id} | :x: | :x: | :x:
-`/electricScooters/{id}/batteryLevel` | Visa batterinivån för en elsparkcykel med id {id} | :x: | :x: | :x:
-`/electricScooters/{id}/stop` | :x:                                    | Stoppa elsparkcykeln           | :x:                                         | :x:
-`/chargingStations/`          | Visa alla laddstationer                | Skapa en ny laddstation        | :x:                                         | :x:
-`/chargingStations/{id}`      | Visa en laddstation med id {id}        | :x:                            | Modifiera en elsparkcykel med id {id}       | Ta bort en elsparkcykel med id {id}
-`/forbiddenZones/`            | Visa alla förbjudna zoner              | Skapa en ny förbjuden zon      | :x:                                         | :x:
-`/forbiddenZones/{id}`        | Visa en förbjuden zon med id {id}      | :x:                            | Modifiera en förbjuden zon med id {id}      | Ta bort en förbjuden zon med id {id}
-`/workshops/`                 | Visa alla verkstäder                   | Skapa en ny verkstad           | :x:                                         | :x:
-`/workshops/{id}`             | Visa en verkstad med id {id}           | :x:                            | Modifiera en verkstad med id {id}           | Ta bort en verkstad med id {id}
-`/parkingZones/`              | Visa en alla parkeringplatser          | Skapa en ny parkeringsplats    | :x:           | :x:
-`/parkingZones/{id}`          | Visa en parkeringplats med id {id}     | :x:    | Modifiera en parkeringsplats med id {id}           | Ta bort en parkeringsplats med id {id}
-`/trips/`                     | Visa alla resor     | Skapa en ny resa    | :x:            | :x:
-`/trips/{id}`                 | Visa en resa med id {id}     | :x:    | Modifiera en resa med id {id}           | Ta bort en resa med id {id}
-`/trips/{userId}`             | Visa alla resor med användar-id {användar-id}     | :x:    | :x:           | :x:
-</p>
+<div id="outline-container-org92cdac3" class="outline-3">
+<h3 id="org92cdac3">Lista över routes</h3>
+<div class="outline-text-3" id="text-org92cdac3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">`URL`</th>
+<th scope="col" class="org-left">`GET`</th>
+<th scope="col" class="org-left">`POST`</th>
+<th scope="col" class="org-left">`PUT`</th>
+<th scope="col" class="org-left">`DELETE`</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">/users</td>
+<td class="org-left">Visa alla användare</td>
+<td class="org-left">Skapa en ny användare</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/users/{id}</td>
+<td class="org-left">Visa en användare med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en användare med id {id}</td>
+<td class="org-left">Ta bort en användare med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/users/{id}/position</td>
+<td class="org-left">Visa positionen för en användare med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">^</td>
+</tr>
+
+<tr>
+<td class="org-left">/users/{city}</td>
+<td class="org-left">Visa alla användare som för tillfället hyr en elsparkcykel i stad {city}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/users/online</td>
+<td class="org-left">Visa alla användare som för tillfället är online</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/users/offline</td>
+<td class="org-left">Visa alla användare som för tillfället är offline</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/administrators</td>
+<td class="org-left">Visa alla administratörer</td>
+<td class="org-left">Skapa en ny administratör</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/administrators/{id}</td>
+<td class="org-left">Visa en administratörer med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en administratör med id {id}</td>
+<td class="org-left">Ta bort en administratör med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/mainAdministrators</td>
+<td class="org-left">Visa alla huvudadministratör</td>
+<td class="org-left">Skapa en ny huvudadministratör</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/mainAdministrators/{id}</td>
+<td class="org-left">Visa en huvudadministratör med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en huvudadministratör med id {id}</td>
+<td class="org-left">Ta bort en huvudadministratör med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/cities</td>
+<td class="org-left">Visa alla städer</td>
+<td class="org-left">Skapa en ny stad</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/cities/{id}</td>
+<td class="org-left">Visa en stad med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en stad med id {id}</td>
+<td class="org-left">Ta bort en stad med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/cities/{id}/forbiddenZones</td>
+<td class="org-left">Visa alla förbjudna zoner i stad med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/cities/{id}/electricScooters</td>
+<td class="org-left">Visa alla elsparkcyklar i stad med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/cities/{id}/chargingStations</td>
+<td class="org-left">Visa alla laddstationer i stad med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/cities/{id}/workshops</td>
+<td class="org-left">Visa alla verkstäder i stad med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters</td>
+<td class="org-left">Visa alla elsparkcyklar</td>
+<td class="org-left">Skapa en ny elsparkcykel</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/rented</td>
+<td class="org-left">Visa alla elsparkcyklar som just nu är uthyrda</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/stale</td>
+<td class="org-left">Visa alla elsparkcyklar som just nu inte är uthyrda</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/serviced</td>
+<td class="org-left">Visa alla elsparkcyklar som just nu är under service</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/{id}</td>
+<td class="org-left">Visa en elsparkcykel med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en elsparkcykel med id {id}</td>
+<td class="org-left">Ta bort en elsparkcykel med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/{id}/position</td>
+<td class="org-left">Visa positionen för en elsparkcykel med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/{id}/batteryLevel</td>
+<td class="org-left">Visa batterinivån för en elsparkcykel med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/electricScooters/{id}/stop</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Stoppa elsparkcykeln</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/chargingStations</td>
+<td class="org-left">Visa alla laddstationer</td>
+<td class="org-left">Skapa en ny laddstation</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/chargingStations/{id}</td>
+<td class="org-left">Visa en laddstation med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en elsparkcykel med id {id}</td>
+<td class="org-left">Ta bort en elsparkcykel med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/forbiddenZones</td>
+<td class="org-left">Visa alla förbjudna zoner</td>
+<td class="org-left">Skapa en ny förbjuden zon</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/forbiddenZones/{id}</td>
+<td class="org-left">Visa en förbjuden zon med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en förbjuden zon med id {id}</td>
+<td class="org-left">Ta bort en förbjuden zon med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/workshops</td>
+<td class="org-left">Visa alla verkstäder</td>
+<td class="org-left">Skapa en ny verkstad</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/workshops/{id}</td>
+<td class="org-left">Visa en verkstad med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en verkstad med id {id}</td>
+<td class="org-left">Ta bort en verkstad med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/parkingZones</td>
+<td class="org-left">Visa en alla parkeringplatser</td>
+<td class="org-left">Skapa en ny parkeringsplats</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/parkingZones/{id}</td>
+<td class="org-left">Visa en parkeringplats med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en parkeringsplats med id {id}</td>
+<td class="org-left">Ta bort en parkeringsplats med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/trips</td>
+<td class="org-left">Visa alla resor</td>
+<td class="org-left">Skapa en ny resa</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/trips/{id}</td>
+<td class="org-left">Visa en resa med id {id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">Modifiera en resa med id {id}</td>
+<td class="org-left">Ta bort en resa med id {id}</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/trips/{userId}</td>
+<td class="org-left">Visa alla resor med användar-id {användar-id}</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">:x:</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
-<div id="outline-container-org2959182" class="outline-3">
-<h3 id="org2959182">Dokumentation</h3>
-<div class="outline-text-3" id="text-org2959182">
+<div id="outline-container-orgf2076dc" class="outline-3">
+<h3 id="orgf2076dc">Dokumentation</h3>
+<div class="outline-text-3" id="text-orgf2076dc">
 <p>
 För att underlätta för tredjepartsleverntörer att bygga externa tjänster och applicationer är
 REST-API&amp;rsquo;et väldokumenterat.
@@ -656,9 +1006,9 @@ REST-API&amp;rsquo;et väldokumenterat.
 </div>
 </div>
 
-<div id="outline-container-org92ab708" class="outline-3">
-<h3 id="org92ab708">Versioner</h3>
-<div class="outline-text-3" id="text-org92ab708">
+<div id="outline-container-org8afc836" class="outline-3">
+<h3 id="org8afc836">Versioner</h3>
+<div class="outline-text-3" id="text-org8afc836">
 <p>
 REST-API&amp;rsquo;et har byggts för att vara framtidssäkert där uppdateringar och tillägg hanteras med
 versionsnummer som en del i ~~URI~~URL:en.
@@ -666,18 +1016,18 @@ versionsnummer som en del i ~~URI~~URL:en.
 </div>
 </div>
 
-<div id="outline-container-org8b19b0e" class="outline-3">
-<h3 id="org8b19b0e">Autentisering</h3>
-<div class="outline-text-3" id="text-org8b19b0e">
+<div id="outline-container-org8cc3e7e" class="outline-3">
+<h3 id="org8cc3e7e">Autentisering</h3>
+<div class="outline-text-3" id="text-org8cc3e7e">
 <p>
 Alla applikationer som använder REST-API&amp;rsquo;et måste autentisera sig med hjälp av JSON Web Tokens för att kontrollera att endast
 endpoints som rör applikationen finns tillgängliga.
 </p>
 </div>
 
-<div id="outline-container-orgb8ad199" class="outline-4">
-<h4 id="orgb8ad199">Godkänd autentisering</h4>
-<div class="outline-text-4" id="text-orgb8ad199">
+<div id="outline-container-org4a007dd" class="outline-4">
+<h4 id="org4a007dd">Godkänd autentisering</h4>
+<div class="outline-text-4" id="text-org4a007dd">
 <p>
 En applikation för administratörer kan se alla användare i systemet.
 </p>
@@ -705,9 +1055,9 @@ En applikation för administratörer kan se alla användare i systemet.
 </div>
 </div>
 
-<div id="outline-container-org8a9d902" class="outline-4">
-<h4 id="org8a9d902">Misslyckad autentisering</h4>
-<div class="outline-text-4" id="text-org8a9d902">
+<div id="outline-container-org4bee2c3" class="outline-4">
+<h4 id="org4bee2c3">Misslyckad autentisering</h4>
+<div class="outline-text-4" id="text-org4bee2c3">
 <p>
 En applikation för användare kan <b><b>inte</b></b> se alla användare i systemet.
 </p>
@@ -730,46 +1080,45 @@ En applikation för användare kan <b><b>inte</b></b> se alla användare i syste
 </div>
 </div>
 
-
-<div id="outline-container-orgf1f741e" class="outline-2">
-<h2 id="orgf1f741e">Tester</h2>
-<div class="outline-text-2" id="text-orgf1f741e">
+<div id="outline-container-org308d0b2" class="outline-2">
+<h2 id="org308d0b2">Tester</h2>
+<div class="outline-text-2" id="text-org308d0b2">
 <p>
 Alla i systemet ingående komponenter kommer under utvecklingen av systemets genomgå unit- och integrationstester
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6ff1bfc" class="outline-2">
-<h2 id="org6ff1bfc">CI/CD</h2>
-<div class="outline-text-2" id="text-org6ff1bfc">
+<div id="outline-container-org0f663a1" class="outline-2">
+<h2 id="org0f663a1">CI/CD</h2>
+<div class="outline-text-2" id="text-org0f663a1">
 <p>
 För att säkerställa att alla tester körs som de ska, och att ingen ny kod skapas som bryter beteendet i befintlig kod, bygger vi ett flöde för CI/CD i GitHub.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8bc60e1" class="outline-2">
-<h2 id="org8bc60e1">Simulering</h2>
-<div class="outline-text-2" id="text-org8bc60e1">
+<div id="outline-container-org6b02525" class="outline-2">
+<h2 id="org6b02525">Simulering</h2>
+<div class="outline-text-2" id="text-org6b02525">
 <p>
 Innan systemet färdigställs för slutleverans kommer systemet utsättas för ett virtuellt stresstest. I detta test simulerar vi  5000 cyklar som hyrs ut, framförs, och återlämnas i vardera stad systemet skall användas i. Resultatet av denna simulering sammanställs och infogas i leveransrapporten.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb669a19" class="outline-2">
-<h2 id="orgb669a19">Driftsättning</h2>
-<div class="outline-text-2" id="text-orgb669a19">
+<div id="outline-container-org857db57" class="outline-2">
+<h2 id="org857db57">Driftsättning</h2>
+<div class="outline-text-2" id="text-org857db57">
 <p>
 Systemet kan driftas i valfri miljö då vi redan vid utvecklingen implementerar containerization genom Docker. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgfff2571" class="outline-2">
-<h2 id="orgfff2571">Referenser</h2>
-<div class="outline-text-2" id="text-orgfff2571">
+<div id="outline-container-org5217a21" class="outline-2">
+<h2 id="org5217a21">Referenser</h2>
+<div class="outline-text-2" id="text-org5217a21">
 <p>
 [1] Transportstyrelsen. &rdquo;Utredning behov av förenklade regler för eldrivna enpersonsfordon&rdquo;. Internet: <a href="https://www.transportstyrelsen.se/globalassets/global/publikationer-och-rapporter/vag/slutrapport-utredning-regler-eldrivna-enpersonsfordon.pdf">https://www.transportstyrelsen.se/globalassets/global/publikationer-och-rapporter/vag/slutrapport-utredning-regler-eldrivna-enpersonsfordon.pdf</a> <span class="timestamp-wrapper"><span class="timestamp">[2022-11-18 Fri]</span></span>.
 </p>
@@ -809,8 +1158,8 @@ Systemet kan driftas i valfri miljö då vi redan vid utvecklingen implementerar
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">F&ouml;rfattare: Tomas Zwolinski, Patrik Malvenius, Joel ingenaning, Richard Sonnerberg</p>
-<p class="date">Created: 2022-11-21 Mon 21:18</p>
+<p class="author">F&ouml;rfattare: Tomas Zwolinski, Patrik Malvenius, Joel Löfgren, Richard Sönnerberg</p>
+<p class="date">Created: 2022-11-22 Tue 09:23</p>
 </div>
 </body>
 </html>
